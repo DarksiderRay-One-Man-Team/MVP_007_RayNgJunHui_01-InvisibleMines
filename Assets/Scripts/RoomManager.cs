@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Meta.XR.MRUtilityKit;
 using NaughtyAttributes;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -19,6 +20,7 @@ public class RoomManager : MonoBehaviour
     public OnMRUKSceneLoaded onMRUKSceneLoaded;
 
     [Header("DEBUG")]
+    [SerializeField] private TextMeshPro debugText;
     [SerializeField, ReadOnly] private Vector3 roomDimension;
     [SerializeField, ReadOnly] private float roomSize;
     [SerializeField, ReadOnly] private float availableSpaceSize;
@@ -54,7 +56,13 @@ public class RoomManager : MonoBehaviour
             availableSpaceSize -= colliderSize.x * colliderSize.y * colliderSize.z;
         }
 
+        Debug.Log("Room Manager invoked!");
         onMRUKSceneLoaded?.Invoke(room, roomSize, availableSpaceSize);
+
+        if (debugText)
+        {
+            debugText.text = $"Room Size: {Mathf.Round(roomSize)}\nAvailable Space: {Mathf.Round(availableSpaceSize)}";
+        }
     }
 
 
