@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+  - enabled: 0
+    path: Assets/Scenes/MainScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Procedural Mine Placement Test.unity
+    guid: 1286f295ae721c549bb384907e50aad0
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bd602afab50b7764baac9b4b39b0fda7,
       type: 2}
