@@ -266,6 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 678519061807620725}
+  collider: {fileID: 9113405669253704701}
   sfxAudioSource: {fileID: 6537330580010100722}
   explodeFx: {fileID: 5876113836534126138, guid: 966f1a2792fb5af4ab6a5fb9b2284918,
     type: 3}

@@ -13,6 +13,7 @@ public class TaskPlacementManager : MonoBehaviour
     [Header("Task Completion Status")]
     [SerializeField, ReadOnly] private List<TaskInteractable> tasksRemaining = new();
     [SerializeField, ReadOnly] private int noOfCompletedTasks = 0;
+    public int NoOfCompletedTasks => noOfCompletedTasks;
     
     private void Awake()
     {
@@ -34,5 +35,14 @@ public class TaskPlacementManager : MonoBehaviour
                 };
             }
         }
+    }
+
+    public void DestroyAllTasks()
+    {
+        foreach (var button in tasksRemaining)
+        {
+            button.Destroy();
+        }
+        tasksRemaining.Clear();
     }
 }

@@ -45,4 +45,12 @@ public abstract class TaskInteractable : MonoBehaviour
             Destroy(gameObject);
         };
     }
+
+    public void Destroy()
+    {
+        transform.DOScale(Vector3.zero, scaleTransitionDuration).onComplete += () =>
+        {
+            Destroy(gameObject);
+        };
+    }
 }

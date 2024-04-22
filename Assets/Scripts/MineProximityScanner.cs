@@ -21,12 +21,17 @@ public class MineProximityScanner : MonoBehaviour
     [SerializeField] private float warningRangeRadius = 1f;
     [SerializeField] private float dangerRangeRadius = 0.25f;
 
-    private bool isDead = false;
+    //private bool isDead = false;
     
     void FixedUpdate()
     {
-        if (isDead)
+        if (!InvisibleMinesGameManager.IsAlive)
+        {
+            if (beepingAudioSource.isPlaying) beepingAudioSource.Stop();
+            visualIndicator.material.color = deadColor;
             return;
+        }
+            
         
         var mineCollidersInDangerRange = Physics.OverlapSphere(transform.position, dangerRangeRadius, LayerMask.GetMask("Mine"));
         if (mineCollidersInDangerRange.Length > 0)
@@ -50,22 +55,22 @@ public class MineProximityScanner : MonoBehaviour
         if (beepingAudioSource.isPlaying) beepingAudioSource.Stop();
     }
 
-    void OnTriggerEnter(Collider col)
-    {
-        if (col.TryGetComponent(out Mine mine))
-        {
-            beepingAudioSource.Stop();
-            visualIndicator.material.color = deadColor;
-            mine.Explode();
-            isDead = true;
-        }
-    }
-
-    void OnTriggerExit(Collider col)
-    {
-        if (col.TryGetComponent(out Mine mine))
-        {
-            isDead = false;
-        }
-    }
+    // void OnTriggerEnter(Collider col)
+    // {
+    //     if (col.TryGetComponent(out Mine mine))
+    //     {
+    //         beepingAudioSource.Stop();
+    //         visualIndicator.material.color = deadColor;
+    //         mine.Explode();
+    //         isDead = true;
+    //     }
+    // }
+    //
+    // void OnTriggerExit(Collider col)
+    // {
+    //     if (col.TryGetComponent(out Mine mine))
+    //     {
+    //         isDead = false;
+    //     }
+    // }
 }
