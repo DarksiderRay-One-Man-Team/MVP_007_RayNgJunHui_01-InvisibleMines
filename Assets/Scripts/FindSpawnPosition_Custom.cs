@@ -1,9 +1,11 @@
+using System;
 using Meta.XR.MRUtilityKit;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Debug = UnityEngine.Debug;
+using Random = UnityEngine.Random;
 
 // Allows for fast generation of valid (inside the room, outside furniture bounds) random positions for content spawning.
 // Optional method to pin directly to surfaces
@@ -29,10 +31,12 @@ public class FindSpawnPositions_Custom : MonoBehaviour
 
     [FormerlySerializedAs("selectedSnapOption")]
     [SerializeField, Tooltip("Attach content to scene surfaces.")]
-    public SpawnLocation SpawnLocations = SpawnLocation.Floating;
+    //public SpawnLocation SpawnLocations = SpawnLocation.Floating;
 
-    [SerializeField, Tooltip("When using surface spawning, use this to filter which anchor labels should be included. Eg, spawn only on TABLE or OTHER.")]
-    public MRUKAnchor.SceneLabels Labels = ~(MRUKAnchor.SceneLabels)0;
+    //[SerializeField, Tooltip("When using surface spawning, use this to filter which anchor labels should be included. Eg, spawn only on TABLE or OTHER.")]
+    //public MRUKAnchor.SceneLabels Labels = ~(MRUKAnchor.SceneLabels)0;
+
+    public List<SpawnLocationConfig> SpawnLocationConfigs = new();
 
     [SerializeField, Tooltip("If enabled then the spawn position will be checked to make sure there is no overlap with physics colliders including themselves.")]
     public bool CheckOverlaps = true;
@@ -123,7 +127,12 @@ public class FindSpawnPositions_Custom : MonoBehaviour
             {
                 Vector3 spawnPosition = Vector3.zero;
                 Vector3 spawnNormal = Vector3.zero;
-                if (SpawnLocations == SpawnLocation.Floating)
+
+                var spawnConfig = SpawnLocationConfigs[Random.Range(0, SpawnLocationConfigs.Count)];
+                var spawnLocations = spawnConfig.spawnLocation;
+                var spawnLabels = spawnConfig.labels;
+                
+                if (spawnLocations == SpawnLocation.Floating)
                 {
                     var randomPos = room.GenerateRandomPositionInRoom(minRadius, true);
                     if (!randomPos.HasValue)
@@ -136,7 +145,7 @@ public class FindSpawnPositions_Custom : MonoBehaviour
                 else
                 {
                     MRUK.SurfaceType surfaceType = 0;
-                    switch (SpawnLocations)
+                    switch (spawnLocations)
                     {
                         case SpawnLocation.AnySurface:
                             surfaceType |= MRUK.SurfaceType.FACING_UP;
@@ -153,7 +162,7 @@ public class FindSpawnPositions_Custom : MonoBehaviour
                             surfaceType |= MRUK.SurfaceType.FACING_DOWN;
                             break;
                     }
-                    if (room.GenerateRandomPositionOnSurface(surfaceType, minRadius, LabelFilter.FromEnum(Labels), out var pos, out var normal))
+                    if (room.GenerateRandomPositionOnSurface(surfaceType, minRadius, LabelFilter.FromEnum(spawnLabels), out var pos, out var normal))
                     {
                         spawnPosition = pos + normal * baseOffset;
                         spawnNormal = normal;
@@ -178,7 +187,7 @@ public class FindSpawnPositions_Custom : MonoBehaviour
                 }
                 
                 // check max height condition
-                Debug.Log($"{i}: {spawnPosition}");
+                //Debug.Log($"{i}: {spawnPosition}");
                 if (spawnPosition.y > maxHeight)
                     continue;
 
@@ -207,4 +216,11 @@ public class FindSpawnPositions_Custom : MonoBehaviour
             }
         }
     }
+}
+
+[Serializable]
+public class SpawnLocationConfig
+{
+    public FindSpawnPositions_Custom.SpawnLocation spawnLocation = FindSpawnPositions_Custom.SpawnLocation.Floating;
+    public MRUKAnchor.SceneLabels labels = ~(MRUKAnchor.SceneLabels)0;
 }
