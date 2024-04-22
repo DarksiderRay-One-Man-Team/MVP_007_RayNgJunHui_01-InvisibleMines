@@ -22,15 +22,15 @@ public class MinePlacementManager : MonoBehaviour
         Assert.IsNotNull(posSpawner);
         Assert.IsNotNull(roomManager);
 
-        roomManager.onMRUKSceneLoaded += OnMRUKSceneLoaded;
+        //roomManager.onMRUKSceneLoaded += OnMRUKSceneLoaded;
     }
     
     private void OnDestroy()
     {
-        roomManager.onMRUKSceneLoaded -= OnMRUKSceneLoaded;
+        //roomManager.onMRUKSceneLoaded -= OnMRUKSceneLoaded;
     }
     
-    private void OnMRUKSceneLoaded(MRUKRoom room, float roomSize, float availableSpaceSize)
+    public void OnMRUKSceneLoaded(MRUKRoom room, float roomSize, float availableSpaceSize)
     {
         Debug.Log("Mine Placement Manager invoked!");
         spawnCount = availableSpaceSize < 50 ? 10: 16;
@@ -38,6 +38,21 @@ public class MinePlacementManager : MonoBehaviour
 
         
 
+        spawnedMines.Clear();
+        foreach (var mineObj in spawnedMineObjects)
+        {
+            if (mineObj.TryGetComponent(out Mine mine))
+                spawnedMines.Add(mine);
+        }
+
+        ToggleAllMineVisibilities(false);
+    }
+
+    public void PlaceInitialMines(MRUKRoom room, float roomSize, float availableSpaceSize)
+    {
+        spawnCount = availableSpaceSize < 50 ? 10: 16;
+        posSpawner.StartSpawn(room, spawnCount, out var spawnedMineObjects);
+        
         spawnedMines.Clear();
         foreach (var mineObj in spawnedMineObjects)
         {

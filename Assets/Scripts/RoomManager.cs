@@ -13,6 +13,7 @@ public class RoomManager : MonoBehaviour
     [SerializeField] private MRUK mruk;
     
     private MRUKRoom room;
+    public MRUKRoom Room => room;
     private BoxCollider roomBounds;
     private EffectMesh effectMesh;
     
@@ -23,7 +24,9 @@ public class RoomManager : MonoBehaviour
     [SerializeField] private TextMeshPro debugText;
     [SerializeField, ReadOnly] private Vector3 roomDimension;
     [SerializeField, ReadOnly] private float roomSize;
+    public float RoomSize => roomSize;
     [SerializeField, ReadOnly] private float availableSpaceSize;
+    public float AvailableSpaceSize => availableSpaceSize;
 
     void Awake()
     {

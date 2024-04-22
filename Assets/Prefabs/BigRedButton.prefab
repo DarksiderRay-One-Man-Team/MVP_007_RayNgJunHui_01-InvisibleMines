@@ -339,8 +339,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 0.125, z: 0.5}
-  m_Center: {x: 0, y: 0.0625, z: 0}
+  m_Size: {x: 0.5, y: 0.25, z: 0.5}
+  m_Center: {x: 0, y: 0.125, z: 0}
 --- !u!1 &6718894499117504087
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,6 +350,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8839057487383505034}
+  - component: {fileID: 5964173813177002689}
   m_Layer: 0
   m_Name: BigRedButton
   m_TagString: Untagged
@@ -376,6 +377,22 @@ Transform:
   - {fileID: 555471186687322086}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5964173813177002689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6718894499117504087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 695fafe962bfb5647898abae2c776c50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleTransitionOnStart: 1
+  scaleTransitionDuration: 0.5
+  isCompleted: 0
+  interactableUnityEventWrapper: {fileID: 981150816482579384}
 --- !u!1 &7262338884751866924
 GameObject:
   m_ObjectHideFlags: 0

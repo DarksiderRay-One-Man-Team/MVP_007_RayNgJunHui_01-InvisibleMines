@@ -12296,7 +12296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53fb71c00c272534faf9516ba4dd506a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnOnStart: 2
+  SpawnOnStart: 0
   SpawnObject: {fileID: 6718894499117504087, guid: b85117b4aa6cb7e47916f81f20c69d00,
     type: 3}
   SpawnAmount: 12
@@ -14049,13 +14049,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1337876111}
+  - component: {fileID: 1337876112}
   m_Layer: 0
-  m_Name: '[ButtonPlacementManager]'
+  m_Name: '[TaskPlacementManager]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1337876111
 Transform:
   m_ObjectHideFlags: 0
@@ -14066,6 +14067,69 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1337876112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337876110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec1471eb1ab70f40b745031a8df022a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskButtonSpawner: {fileID: 1180250401}
+  taskInteractableSpawnCount: 12
+  tasksRemaining: []
+  noOfCompletedTasks: 0
+--- !u!1 &1339626734
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1339626736}
+  - component: {fileID: 1339626735}
+  m_Layer: 0
+  m_Name: '[MainGameManager]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1339626735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339626734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a705bd94e569fb49994069d18b3d0b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomManager: {fileID: 31358497}
+  minePlacementManager: {fileID: 2053251511}
+  taskPlacementManager: {fileID: 1337876112}
+--- !u!4 &1339626736
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339626734}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.35062665, y: 0.915395, z: -0.46180758}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22008,6 +22072,7 @@ SceneRoots:
   - {fileID: 2034851131}
   - {fileID: 420498708}
   - {fileID: 1375656186}
+  - {fileID: 1339626736}
   - {fileID: 31358498}
   - {fileID: 2053251512}
   - {fileID: 1337876111}
