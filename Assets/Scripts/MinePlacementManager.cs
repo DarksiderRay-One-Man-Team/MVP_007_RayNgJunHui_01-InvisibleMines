@@ -12,10 +12,14 @@ public class MinePlacementManager : MonoBehaviour
     [SerializeField] private RoomManager roomManager;
 
     [Header("Mines")]
-    [SerializeField] private int spawnCount = 15;
+    //[SerializeField] private int spawnCount = 15;
     [SerializeField] private List<Mine> spawnedMines;
 
     private bool allMinesVisible = false;
+    private MRUKRoom room;
+    
+    public delegate void OnNumberOfMinesUpdated(int mineCount);
+    public OnNumberOfMinesUpdated onNumberOfMinesUpdated;
 
     void Awake()
     {
@@ -43,22 +47,36 @@ public class MinePlacementManager : MonoBehaviour
 
     public void PlaceInitialMines(MRUKRoom room, float roomSize, float availableSpaceSize)
     {
-        spawnCount = availableSpaceSize < 50 ? 10: 16;
+        this.room = room;
+        int spawnCount = availableSpaceSize < 50 ? 10: 16;
+        spawnedMines.Clear();
+        PlaceAdditionalMines(spawnCount);
+
+        ToggleAllMineVisibilities(false);
+    }
+
+    private void PlaceAdditionalMines(int spawnCount)
+    {
         posSpawner.StartSpawn(room, spawnCount, out var spawnedMineObjects);
         
-        spawnedMines.Clear();
         foreach (var mineObj in spawnedMineObjects)
         {
             if (mineObj.TryGetComponent(out Mine mine))
             {
                 spawnedMines.Add(mine);
                 mine.onExplode += () => spawnedMines.Remove(mine);
+                mine.ToggleMeshRenderer(allMinesVisible);
             }
         }
-
-        ToggleAllMineVisibilities(false);
+        onNumberOfMinesUpdated?.Invoke(spawnedMines.Count);
     }
 
+    [Button]
+    private void AddNewMine()
+    {
+        PlaceAdditionalMines(1);
+    }
+    
     private void ToggleAllMineVisibilities(bool value)
     {
         allMinesVisible = value;
@@ -85,6 +103,7 @@ public class MinePlacementManager : MonoBehaviour
         }
 
         spawnedMines.Clear();
+        onNumberOfMinesUpdated?.Invoke(spawnedMines.Count);
     }
 
     [Button]

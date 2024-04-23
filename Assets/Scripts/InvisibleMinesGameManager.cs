@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Meta.XR.MRUtilityKit;
 using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
@@ -13,8 +14,11 @@ public class InvisibleMinesGameManager : MonoBehaviour
     [SerializeField] private MinePlacementManager minePlacementManager;
     [SerializeField] private TaskPlacementManager taskPlacementManager;
 
+    [Header("Game Status UI")]
+    [SerializeField] private GameObject gameStatusUI;
+    
     [Header("Lethal Checks")]
-    [SerializeField] private GUI_LivesRemaining gui_LivesRemaining;
+    [SerializeField] private GUI_LivesRemaining onScreenGUI_LivesRemaining;
     [SerializeField] private List<LethalCheck> lethalChecks = new();
     [SerializeField] private int noOfLivesGiven = 3;
     [SerializeField, ReadOnly] private int noOfLivesRemaining;
@@ -28,8 +32,12 @@ public class InvisibleMinesGameManager : MonoBehaviour
     [Header("DEBUG")]
     [SerializeField] private TextMeshPro debugText;
 
-    private delegate void OnGameStatusChange();
-    private OnGameStatusChange onLoseLife, onGameOver;
+    [SerializeField] private MRUKAnchor largestSurface; 
+
+    public delegate void OnGameStatusChange();
+    public OnGameStatusChange onGameOver;
+    public delegate void OnRemainingLivesUpdated(int noOfLivesRemaining);
+    public OnRemainingLivesUpdated onLivesInitialised, onRemainingLivesUpdated;
     
     private void Awake()
     {
@@ -37,9 +45,16 @@ public class InvisibleMinesGameManager : MonoBehaviour
         Assert.IsNotNull(minePlacementManager);
         Assert.IsNotNull(taskPlacementManager);
         //roomManager.onMRUKSceneLoaded += minePlacementManager.OnMRUKSceneLoaded;
-        roomManager.onMRUKSceneLoaded += (_, _, _) => StartGame();
+        roomManager.onMRUKSceneLoaded += (room, _, _) =>
+        {
+            largestSurface = room.FindLargestSurface("WALL_FACE");
+            gameStatusUI.transform.position = largestSurface.transform.position;
+            gameStatusUI.transform.rotation = Quaternion.LookRotation(largestSurface.transform.forward, Vector3.up);
+            
+            StartGame();
+        };
         
-        Assert.IsNotNull(gui_LivesRemaining);
+        Assert.IsNotNull(onScreenGUI_LivesRemaining);
         Assert.IsTrue(noOfLivesGiven > 0);
         foreach (var lethalCheck in lethalChecks)
         {
@@ -50,9 +65,10 @@ public class InvisibleMinesGameManager : MonoBehaviour
         Assert.IsNotNull(passthroughLayer_Normal);
         Assert.IsNotNull(passthroughLayer_Hurt);
 
-        onLoseLife += () =>
+        onRemainingLivesUpdated += _ =>
         {
-            gui_LivesRemaining.ShowLivesRemaining(noOfLivesRemaining);
+            //onScreenGUI_LivesRemaining.ShowLivesRemaining(noOfLivesRemaining);
+            onScreenGUI_LivesRemaining.FadeInTemporarily();
             StartCoroutine(FadePassthroughLayerWhenHurt());
         };
         
@@ -77,8 +93,9 @@ public class InvisibleMinesGameManager : MonoBehaviour
     private void StartGame()
     {
         noOfLivesRemaining = noOfLivesGiven;
-        gui_LivesRemaining.InitializeLives(noOfLivesRemaining);
-        gui_LivesRemaining.ShowLivesRemaining(noOfLivesRemaining);
+        //onScreenGUI_LivesRemaining.InitializeLives(noOfLivesRemaining);
+        onLivesInitialised?.Invoke(noOfLivesRemaining);
+        onScreenGUI_LivesRemaining.FadeInTemporarily();
 
         minePlacementManager.DestroyAllMines();
         minePlacementManager.PlaceInitialMines(roomManager.Room,
@@ -86,14 +103,17 @@ public class InvisibleMinesGameManager : MonoBehaviour
                                                 roomManager.AvailableSpaceSize);
 
         taskPlacementManager.DestroyAllTasks();
+        taskPlacementManager.ResetNoOfCompletedTasks();
         taskPlacementManager.PlaceInitialTasks();
+        
+        gameStatusUI.SetActive(true);
     }
 
     [Button]
     private void LoseLife()
     {
         noOfLivesRemaining--;
-        onLoseLife?.Invoke();
+        onRemainingLivesUpdated?.Invoke(noOfLivesRemaining);
         
         if (noOfLivesRemaining <= 0)
         {

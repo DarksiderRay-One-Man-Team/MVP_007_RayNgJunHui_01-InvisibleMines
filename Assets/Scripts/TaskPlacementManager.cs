@@ -15,6 +15,9 @@ public class TaskPlacementManager : MonoBehaviour
     [SerializeField, ReadOnly] private int noOfCompletedTasks = 0;
     public int NoOfCompletedTasks => noOfCompletedTasks;
     
+    public delegate void OnNumberOfCompletedTasksUpdated(int noOfCompletedTasks);
+    public OnNumberOfCompletedTasksUpdated onNumberOfCompletedTasksUpdated;
+    
     private void Awake()
     {
         Assert.IsNotNull(taskButtonSpawner);
@@ -22,7 +25,12 @@ public class TaskPlacementManager : MonoBehaviour
 
     public void PlaceInitialTasks()
     {
-        taskButtonSpawner.StartSpawn(taskInteractableSpawnCount, out var taskButtons);
+        AddNewTasks(taskInteractableSpawnCount);
+    }
+
+    private void AddNewTasks(int spawnCount)
+    {
+        taskButtonSpawner.StartSpawn(spawnCount, out var taskButtons);
         foreach (var button in taskButtons)
         {
             if (button.TryGetComponent(out TaskInteractable taskInteractable))
@@ -32,9 +40,18 @@ public class TaskPlacementManager : MonoBehaviour
                 {
                     noOfCompletedTasks++;
                     tasksRemaining.Remove(taskInteractable);
+                    AddNewTasks(1);
                 };
             }
         }
+        
+        onNumberOfCompletedTasksUpdated?.Invoke(noOfCompletedTasks);
+    }
+
+    public void ResetNoOfCompletedTasks()
+    {
+        noOfCompletedTasks = 0;
+        onNumberOfCompletedTasksUpdated?.Invoke(noOfCompletedTasks);
     }
 
     public void DestroyAllTasks()
