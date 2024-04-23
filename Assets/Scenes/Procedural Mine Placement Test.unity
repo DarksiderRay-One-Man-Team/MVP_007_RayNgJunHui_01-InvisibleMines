@@ -2570,6 +2570,117 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1167455008}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &162744834
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 162744837}
+  - component: {fileID: 162744836}
+  - component: {fileID: 162744835}
+  m_Layer: 0
+  m_Name: '[BuildingBlock] Passthrough - Hurt'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &162744835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162744834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 555725d48e9051a4bb6b8d45178c2fdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectionSurfaceType: 0
+  overlayType: 1
+  compositionDepth: 0
+  hidden: 0
+  overridePerLayerColorScaleAndOffset: 0
+  colorScale: {x: 1, y: 1, z: 1, w: 1}
+  colorOffset: {x: 0, y: 0, z: 0, w: 0}
+  colorMapEditorType_: 1
+  colorMapEditorGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  colorMapEditorContrast: 0
+  colorMapEditorBrightness: 0
+  colorMapEditorPosterize: 0
+  colorMapEditorSaturation: 0
+  _colorLutSourceTexture: {fileID: 0}
+  _colorLutTargetTexture: {fileID: 0}
+  _lutWeight: 1
+  _flipLutY: 1
+  serializedSurfaceGeometry: []
+  textureOpacity_: 0
+  edgeRenderingEnabled_: 0
+  edgeColor_: {r: 1, g: 1, b: 1, a: 1}
+  colorMapType: 1
+--- !u!114 &162744836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162744834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b023183069df224080314a560e6e1ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockId: f0540b20-dfd6-420e-b20d-c270f88dc77e
+  instanceId: 03e94d41-5885-49ef-bd9a-9cdf99dd4475
+  version: 1
+--- !u!4 &162744837
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162744834}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &173942154
 GameObject:
   m_ObjectHideFlags: 0
@@ -13961,6 +14072,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1229345165}
   m_CullTransparentMesh: 1
+--- !u!1 &1229488426 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6362542440626787034, guid: 966f1a2792fb5af4ab6a5fb9b2284918,
+    type: 3}
+  m_PrefabInstance: {fileID: 1728598021}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1229488429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229488426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &1237528767
 GameObject:
   m_ObjectHideFlags: 0
@@ -15294,6 +15434,9 @@ MonoBehaviour:
   - {fileID: 739226395}
   noOfLivesGiven: 3
   noOfLivesRemaining: 0
+  passthroughLayerController: {fileID: 1626617406}
+  passthroughLayer_Normal: {fileID: 1506243984}
+  passthroughLayer_Hurt: {fileID: 162744835}
   debugText: {fileID: 502226826}
 --- !u!4 &1339626736
 Transform:
@@ -16906,7 +17049,7 @@ GameObject:
   - component: {fileID: 1506243985}
   - component: {fileID: 1506243984}
   m_Layer: 0
-  m_Name: '[BuildingBlock] Passthrough'
+  m_Name: '[BuildingBlock] Passthrough - Normal'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18326,6 +18469,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1147192883}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1626617404
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1626617405}
+  - component: {fileID: 1626617406}
+  m_Layer: 0
+  m_Name: '[PassthroughLayerController]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1626617405
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626617404}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.4446883, y: 0.35824683, z: 0.49448636}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1626617406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626617404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b57a4fcbf9b41fb48b22bc3dd56588aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultFadeDuration: 1
+  activeLayer: {fileID: 0}
+  passthroughLayers:
+  - {fileID: 1506243984}
+  - {fileID: 162744835}
+  debugLayerToTransition: {fileID: 0}
 --- !u!1 &1627375396
 GameObject:
   m_ObjectHideFlags: 0
@@ -19471,7 +19664,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6362542440626787034, guid: 966f1a2792fb5af4ab6a5fb9b2284918,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1229488429}
   m_SourcePrefab: {fileID: 100100000, guid: 966f1a2792fb5af4ab6a5fb9b2284918, type: 3}
 --- !u!1 &1752020139
 GameObject:
@@ -23698,6 +23895,7 @@ SceneRoots:
   - {fileID: 1177444757}
   - {fileID: 1398805859}
   - {fileID: 1506243986}
+  - {fileID: 162744837}
   - {fileID: 816355690}
   - {fileID: 1297574511}
   - {fileID: 2034851131}
@@ -23707,6 +23905,7 @@ SceneRoots:
   - {fileID: 31358498}
   - {fileID: 2053251512}
   - {fileID: 1337876111}
+  - {fileID: 1626617405}
   - {fileID: 1544518852}
   - {fileID: 223705058}
   - {fileID: 1709276473}

@@ -19,12 +19,17 @@ public class InvisibleMinesGameManager : MonoBehaviour
     [SerializeField] private int noOfLivesGiven = 3;
     [SerializeField, ReadOnly] private int noOfLivesRemaining;
     public static bool IsAlive = true;
+    
+    [Header("Passthrough Layers")]
+    [SerializeField] private PassthroughLayerController passthroughLayerController;
+    [SerializeField] private OVRPassthroughLayer passthroughLayer_Normal;
+    [SerializeField] private OVRPassthroughLayer passthroughLayer_Hurt;
 
     [Header("DEBUG")]
     [SerializeField] private TextMeshPro debugText;
 
-    private delegate void OnGameOver();
-    private OnGameOver onGameOver;
+    private delegate void OnGameStatusChange();
+    private OnGameStatusChange onLoseLife, onGameOver;
     
     private void Awake()
     {
@@ -40,7 +45,17 @@ public class InvisibleMinesGameManager : MonoBehaviour
         {
             lethalCheck.onLethalInvoked += LoseLife;
         }
+        
+        Assert.IsNotNull(passthroughLayerController);
+        Assert.IsNotNull(passthroughLayer_Normal);
+        Assert.IsNotNull(passthroughLayer_Hurt);
 
+        onLoseLife += () =>
+        {
+            gui_LivesRemaining.ShowLivesRemaining(noOfLivesRemaining);
+            StartCoroutine(FadePassthroughLayerWhenHurt());
+        };
+        
         onGameOver += () =>
         {
             taskPlacementManager.DestroyAllTasks();
@@ -78,12 +93,20 @@ public class InvisibleMinesGameManager : MonoBehaviour
     private void LoseLife()
     {
         noOfLivesRemaining--;
-        gui_LivesRemaining.ShowLivesRemaining(noOfLivesRemaining);
+        onLoseLife?.Invoke();
+        
         if (noOfLivesRemaining <= 0)
         {
             IsAlive = false;
             onGameOver?.Invoke();
             Debug.Log("Game Over! You ran out of lives");
         }
+    }
+
+    private IEnumerator FadePassthroughLayerWhenHurt()
+    {
+        passthroughLayerController.SetActiveLayer(passthroughLayer_Hurt, 0.1f);
+        yield return new WaitForSecondsRealtime(1.5f);
+        passthroughLayerController.SetActiveLayer(passthroughLayer_Normal, 1f);
     }
 }
