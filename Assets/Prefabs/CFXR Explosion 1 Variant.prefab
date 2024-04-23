@@ -116,7 +116,7 @@ PrefabInstance:
     - target: {fileID: 2883620193154939874, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312,
         type: 3}
       propertyPath: cameraShake.enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

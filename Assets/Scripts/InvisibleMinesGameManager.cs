@@ -14,6 +14,7 @@ public class InvisibleMinesGameManager : MonoBehaviour
     [SerializeField] private TaskPlacementManager taskPlacementManager;
 
     [Header("Lethal Checks")]
+    [SerializeField] private GUI_LivesRemaining gui_LivesRemaining;
     [SerializeField] private List<LethalCheck> lethalChecks = new();
     [SerializeField] private int noOfLivesGiven = 3;
     [SerializeField, ReadOnly] private int noOfLivesRemaining;
@@ -33,6 +34,7 @@ public class InvisibleMinesGameManager : MonoBehaviour
         //roomManager.onMRUKSceneLoaded += minePlacementManager.OnMRUKSceneLoaded;
         roomManager.onMRUKSceneLoaded += (_, _, _) => StartGame();
         
+        Assert.IsNotNull(gui_LivesRemaining);
         Assert.IsTrue(noOfLivesGiven > 0);
         foreach (var lethalCheck in lethalChecks)
         {
@@ -60,6 +62,8 @@ public class InvisibleMinesGameManager : MonoBehaviour
     private void StartGame()
     {
         noOfLivesRemaining = noOfLivesGiven;
+        gui_LivesRemaining.InitializeLives(noOfLivesRemaining);
+        gui_LivesRemaining.ShowLivesRemaining(noOfLivesRemaining);
 
         minePlacementManager.DestroyAllMines();
         minePlacementManager.PlaceInitialMines(roomManager.Room,
@@ -74,6 +78,7 @@ public class InvisibleMinesGameManager : MonoBehaviour
     private void LoseLife()
     {
         noOfLivesRemaining--;
+        gui_LivesRemaining.ShowLivesRemaining(noOfLivesRemaining);
         if (noOfLivesRemaining <= 0)
         {
             IsAlive = false;

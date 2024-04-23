@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using CartoonFX;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -36,6 +37,7 @@ public class Mine : MonoBehaviour
         isActive = value;
     }
 
+    [Button]
     public void Explode()
     {
         if (hasExploded || !isActive) return;
