@@ -50,8 +50,8 @@ public class InvisibleMinesGameManager : MonoBehaviour
             largestSurface = room.FindLargestSurface("WALL_FACE");
             gameStatusUI.transform.position = largestSurface.transform.position;
             gameStatusUI.transform.rotation = Quaternion.LookRotation(largestSurface.transform.forward, Vector3.up);
-            
-            StartGame();
+            gameStatusUI.SetActive(false);
+            //StartGame();
         };
         
         Assert.IsNotNull(onScreenGUI_LivesRemaining);
@@ -65,10 +65,10 @@ public class InvisibleMinesGameManager : MonoBehaviour
         Assert.IsNotNull(passthroughLayer_Normal);
         Assert.IsNotNull(passthroughLayer_Hurt);
 
-        onRemainingLivesUpdated += _ =>
+        onRemainingLivesUpdated += noOfLives =>
         {
-            //onScreenGUI_LivesRemaining.ShowLivesRemaining(noOfLivesRemaining);
-            onScreenGUI_LivesRemaining.FadeInTemporarily();
+            if (noOfLives > 0)
+                onScreenGUI_LivesRemaining.FadeInTemporarily();
             StartCoroutine(FadePassthroughLayerWhenHurt());
         };
         
@@ -90,7 +90,7 @@ public class InvisibleMinesGameManager : MonoBehaviour
     // }
 
     [Button]
-    private void StartGame()
+    public void StartGame()
     {
         noOfLivesRemaining = noOfLivesGiven;
         //onScreenGUI_LivesRemaining.InitializeLives(noOfLivesRemaining);
