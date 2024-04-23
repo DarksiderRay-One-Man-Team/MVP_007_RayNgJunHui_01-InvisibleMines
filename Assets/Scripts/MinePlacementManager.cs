@@ -15,6 +15,11 @@ public class MinePlacementManager : MonoBehaviour
     //[SerializeField] private int spawnCount = 15;
     [SerializeField] private List<Mine> spawnedMines;
 
+    [Header("Spawn Interval")]
+    [SerializeField] private float spawnInterval = 45;
+    [SerializeField] private float spawnTimer = 0;
+    private bool spawnTimerOnCountdown;
+
     private bool allMinesVisible = false;
     private MRUKRoom room;
     
@@ -25,6 +30,21 @@ public class MinePlacementManager : MonoBehaviour
     {
         Assert.IsNotNull(posSpawner);
         Assert.IsNotNull(roomManager);
+    }
+
+    void Update()
+    {
+        if (!spawnTimerOnCountdown)
+        {
+            return;
+        }
+
+        spawnTimer += Time.deltaTime;
+        if (spawnTimer > spawnInterval)
+        {
+            AddNewMine();
+            spawnTimer = 0;
+        }
     }
     
     // public void OnMRUKSceneLoaded(MRUKRoom room, float roomSize, float availableSpaceSize)
@@ -110,5 +130,12 @@ public class MinePlacementManager : MonoBehaviour
     public void AlternateMineVisiblity()
     {
         ToggleAllMineVisibilities(!allMinesVisible);
+    }
+
+    public void ToggleSpawnTimer(bool value)
+    {
+        spawnTimerOnCountdown = value;
+        if (!value)
+            spawnTimer = 0;
     }
 }

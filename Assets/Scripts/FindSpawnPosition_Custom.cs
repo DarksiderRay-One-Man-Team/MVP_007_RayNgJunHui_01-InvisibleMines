@@ -53,6 +53,9 @@ public class FindSpawnPositions_Custom : MonoBehaviour
 
     [Header("Custom Properties")]
     [SerializeField] private float maxHeight = 2.0f;
+    [Space]
+    [SerializeField] private Transform distanceRefTransform;
+    [SerializeField] private float minDistance = 1f;
 
     private void Start()
     {
@@ -186,10 +189,18 @@ public class FindSpawnPositions_Custom : MonoBehaviour
                     }
                 }
                 
-                // check max height condition
-                //Debug.Log($"{i}: {spawnPosition}");
+                // check custom conditions ====================================
+                
                 if (spawnPosition.y > maxHeight)
                     continue;
+
+                if (distanceRefTransform != null)
+                {
+                    if (Vector3.Distance(distanceRefTransform.position, spawnPosition) < minDistance)
+                        continue;
+                }
+                
+                // =============================================================
 
                 Quaternion spawnRotation = Quaternion.FromToRotation(Vector3.up, spawnNormal);
                 if (CheckOverlaps && prefabBounds.HasValue)
@@ -214,6 +225,17 @@ public class FindSpawnPositions_Custom : MonoBehaviour
                 }
                 break;
             }
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (OverrideBounds > 0)
+            Gizmos.DrawWireCube(transform.position, Vector3.one * OverrideBounds * 2);
+        
+        if (distanceRefTransform != null)
+        {
+            Gizmos.DrawWireSphere(distanceRefTransform.position, minDistance);
         }
     }
 }

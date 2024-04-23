@@ -30,6 +30,7 @@ public class TaskPlacementManager : MonoBehaviour
 
     private void AddNewTasks(int spawnCount)
     {
+        // TODO Fixed bounds check for avoiding overlaps
         taskButtonSpawner.StartSpawn(spawnCount, out var taskButtons);
         foreach (var button in taskButtons)
         {

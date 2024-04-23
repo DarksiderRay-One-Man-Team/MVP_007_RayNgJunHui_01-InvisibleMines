@@ -6328,6 +6328,8 @@ MonoBehaviour:
     m_Bits: 4294967295
   SurfaceClearanceDistance: 0.1
   maxHeight: 2
+  distanceRefTransform: {fileID: 1132954693}
+  minDistance: 1
 --- !u!1 &471693866
 GameObject:
   m_ObjectHideFlags: 0
@@ -10570,6 +10572,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1416711174}
     m_Modifications:
+    - target: {fileID: 6089075207404383863, guid: b85117b4aa6cb7e47916f81f20c69d00,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6718894499117504087, guid: b85117b4aa6cb7e47916f81f20c69d00,
         type: 3}
       propertyPath: m_Name
@@ -11007,7 +11014,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1b13dc613260dc444a45e247ddf558e8, type: 2}
   m_sharedMaterial: {fileID: 602259310602992212, guid: 1b13dc613260dc444a45e247ddf558e8,
@@ -15258,6 +15265,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 858589054}
     m_Modifications:
+    - target: {fileID: 6089075207404383863, guid: b85117b4aa6cb7e47916f81f20c69d00,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6718894499117504087, guid: b85117b4aa6cb7e47916f81f20c69d00,
         type: 3}
       propertyPath: m_Name
@@ -15724,6 +15736,8 @@ MonoBehaviour:
     m_Bits: 4294967295
   SurfaceClearanceDistance: 0.1
   maxHeight: 1.5
+  distanceRefTransform: {fileID: 0}
+  minDistance: 1
 --- !u!4 &1180250402
 Transform:
   m_ObjectHideFlags: 0
@@ -19099,6 +19113,7 @@ MonoBehaviour:
   mainGameManager: {fileID: 1339626735}
   startGameButtonEventWrapper: {fileID: 787003097}
   scaleDuration: 0.25
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1421967407
 GameObject:
   m_ObjectHideFlags: 0
@@ -19352,7 +19367,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1b13dc613260dc444a45e247ddf558e8, type: 2}
   m_sharedMaterial: {fileID: 602259310602992212, guid: 1b13dc613260dc444a45e247ddf558e8,
@@ -26110,6 +26125,8 @@ MonoBehaviour:
   posSpawner: {fileID: 458798166}
   roomManager: {fileID: 31358497}
   spawnedMines: []
+  spawnInterval: 45
+  spawnTimer: 0
 --- !u!4 &2053251512
 Transform:
   m_ObjectHideFlags: 0

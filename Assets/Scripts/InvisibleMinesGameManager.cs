@@ -76,7 +76,12 @@ public class InvisibleMinesGameManager : MonoBehaviour
         {
             taskPlacementManager.DestroyAllTasks();
             minePlacementManager.DisableAllMines();
+            minePlacementManager.ToggleSpawnTimer(false);
+
+            ToggleLethalChecks(false);
         };
+        
+        ToggleLethalChecks(false);
     }
 
     void Update()
@@ -101,10 +106,13 @@ public class InvisibleMinesGameManager : MonoBehaviour
         minePlacementManager.PlaceInitialMines(roomManager.Room,
                                                 roomManager.RoomSize, 
                                                 roomManager.AvailableSpaceSize);
+        minePlacementManager.ToggleSpawnTimer(true);
 
         taskPlacementManager.DestroyAllTasks();
         taskPlacementManager.ResetNoOfCompletedTasks();
         taskPlacementManager.PlaceInitialTasks();
+        
+        ToggleLethalChecks(true);
         
         gameStatusUI.SetActive(true);
     }
@@ -128,5 +136,13 @@ public class InvisibleMinesGameManager : MonoBehaviour
         passthroughLayerController.SetActiveLayer(passthroughLayer_Hurt, 0.1f);
         yield return new WaitForSecondsRealtime(1.5f);
         passthroughLayerController.SetActiveLayer(passthroughLayer_Normal, 1f);
+    }
+
+    private void ToggleLethalChecks(bool value)
+    {
+        foreach (var lethalCheck in lethalChecks)
+        {
+            lethalCheck.enabled = value;
+        }
     }
 }
