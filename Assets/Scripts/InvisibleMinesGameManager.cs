@@ -30,7 +30,7 @@ public class InvisibleMinesGameManager : MonoBehaviour
     [SerializeField] private OVRPassthroughLayer passthroughLayer_Hurt;
 
     [Header("DEBUG")]
-    [SerializeField] private TextMeshPro debugText;
+    //[SerializeField] private TextMeshPro debugText;
 
     [SerializeField] private MRUKAnchor largestSurface; 
 
@@ -84,10 +84,10 @@ public class InvisibleMinesGameManager : MonoBehaviour
         ToggleLethalChecks(false);
     }
 
-    void Update()
-    {
-        debugText.text = $"Lives Left: {noOfLivesRemaining}\nTasks Done: {taskPlacementManager.NoOfCompletedTasks}";
-    }
+    // void Update()
+    // {
+    //     debugText.text = $"Lives Left: {noOfLivesRemaining}\nTasks Done: {taskPlacementManager.NoOfCompletedTasks}";
+    // }
 
     // private void OnDestroy()
     // {
@@ -111,7 +111,8 @@ public class InvisibleMinesGameManager : MonoBehaviour
         taskPlacementManager.DestroyAllTasks();
         taskPlacementManager.ResetNoOfCompletedTasks();
         taskPlacementManager.PlaceInitialTasks();
-        
+
+        IsAlive = true;
         ToggleLethalChecks(true);
         
         gameStatusUI.SetActive(true);

@@ -84,7 +84,7 @@ public class MinePlacementManager : MonoBehaviour
             if (mineObj.TryGetComponent(out Mine mine))
             {
                 spawnedMines.Add(mine);
-                mine.onExplode += () => spawnedMines.Remove(mine);
+                //mine.onExplode += () => spawnedMines.Remove(mine);
                 mine.ToggleMeshRenderer(allMinesVisible);
             }
         }

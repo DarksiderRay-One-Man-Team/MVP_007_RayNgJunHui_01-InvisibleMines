@@ -7,7 +7,8 @@ using UnityEngine.Assertions;
 public class GUI_MinesInRoom : MonoBehaviour
 {
     [SerializeField] private MinePlacementManager minePlacementManager;
-    [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private TextMeshProUGUI textUI;
+    [SerializeField] private TextMeshPro text;
 
     void Awake()
     {
@@ -17,6 +18,10 @@ public class GUI_MinesInRoom : MonoBehaviour
 
     private void UpdateText(int noOfCompletedTasks)
     {
-        text.text = noOfCompletedTasks.ToString();
+        if (textUI)
+            textUI.text = noOfCompletedTasks.ToString();
+        
+        if (text)
+            text.text = noOfCompletedTasks.ToString();
     }
 }
