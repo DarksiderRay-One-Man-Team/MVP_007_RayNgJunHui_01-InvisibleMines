@@ -19,9 +19,8 @@ public class GUI_IntroScreen : MonoBehaviour
         Assert.IsNotNull(mainGameManager);
         Assert.IsNotNull(startGameButtonEventWrapper);
         
-        startGameButtonEventWrapper.WhenSelect.AddListener(() =>
+        startGameButtonEventWrapper.WhenUnselect.AddListener(() =>
         {
-            
             transform.DOScale(Vector3.zero, scaleDuration).OnComplete(() =>
             {
                 mainGameManager.StartGame();

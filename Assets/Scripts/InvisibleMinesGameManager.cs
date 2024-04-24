@@ -35,7 +35,7 @@ public class InvisibleMinesGameManager : MonoBehaviour
     [SerializeField] private MRUKAnchor largestSurface; 
 
     public delegate void OnGameStatusChange();
-    public OnGameStatusChange onGameOver;
+    public OnGameStatusChange onGameStart, onGameOver;
     public delegate void OnRemainingLivesUpdated(int noOfLivesRemaining);
     public OnRemainingLivesUpdated onLivesInitialised, onRemainingLivesUpdated;
     
@@ -77,6 +77,7 @@ public class InvisibleMinesGameManager : MonoBehaviour
             taskPlacementManager.DestroyAllTasks();
             minePlacementManager.DisableAllMines();
             minePlacementManager.ToggleSpawnTimer(false);
+            minePlacementManager.ToggleAllMineVisibilities(true);
 
             ToggleLethalChecks(false);
         };
@@ -116,6 +117,8 @@ public class InvisibleMinesGameManager : MonoBehaviour
         ToggleLethalChecks(true);
         
         gameStatusUI.SetActive(true);
+
+        onGameStart?.Invoke();
     }
 
     [Button]

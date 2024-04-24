@@ -21,7 +21,7 @@ public class GUI_OutroScreen : MonoBehaviour
         Assert.IsNotNull(mainGameManager);
         Assert.IsNotNull(startGameButtonEventWrapper);
         
-        startGameButtonEventWrapper.WhenSelect.AddListener(() =>
+        startGameButtonEventWrapper.WhenUnselect.AddListener(() =>
         {
             transform.DOScale(Vector3.zero, scaleDuration).OnComplete(() =>
             {

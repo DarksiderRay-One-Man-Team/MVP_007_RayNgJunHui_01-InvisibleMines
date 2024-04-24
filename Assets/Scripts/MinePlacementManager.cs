@@ -97,7 +97,7 @@ public class MinePlacementManager : MonoBehaviour
         PlaceAdditionalMines(1);
     }
     
-    private void ToggleAllMineVisibilities(bool value)
+    public void ToggleAllMineVisibilities(bool value)
     {
         allMinesVisible = value;
         

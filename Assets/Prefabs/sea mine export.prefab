@@ -266,6 +266,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 678519061807620725}
+  mat_Default: {fileID: 2100000, guid: d0f56999e7c538347b1741813a421560, type: 2}
+  mat_Exploded: {fileID: 2100000, guid: 69e4a5fe651008b4cab19fa447cf0d6f, type: 2}
   collider: {fileID: 9113405669253704701}
   sfxAudioSource: {fileID: 6537330580010100722}
   explodeFx: {fileID: 5876113836534126138, guid: 966f1a2792fb5af4ab6a5fb9b2284918,

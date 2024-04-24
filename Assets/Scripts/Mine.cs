@@ -9,6 +9,8 @@ using UnityEngine.Assertions;
 public class Mine : MonoBehaviour
 {
     [SerializeField] private MeshRenderer meshRenderer;
+    [SerializeField] private Material mat_Default;
+    [SerializeField] private Material mat_Exploded;
     [SerializeField] private Collider collider;
     [SerializeField] private AudioSource sfxAudioSource;
     [SerializeField] private CFXR_Effect explodeFx;
@@ -22,6 +24,9 @@ public class Mine : MonoBehaviour
     private void Awake()
     {
         Assert.IsNotNull(meshRenderer);
+        Assert.IsNotNull(mat_Default);
+        Assert.IsNotNull(mat_Exploded);
+        meshRenderer.material = mat_Default;
         Assert.IsNotNull(collider);
         Assert.IsNotNull(sfxAudioSource);
         Assert.IsNotNull(explodeFx);
@@ -41,10 +46,13 @@ public class Mine : MonoBehaviour
     public void Explode()
     {
         if (hasExploded || !isActive) return;
-        
+
+        meshRenderer.material = mat_Exploded;
         collider.enabled = false;
         sfxAudioSource.Play();
         Instantiate(explodeFx, transform.position, transform.rotation);
+        
+        
         onExplode?.Invoke();
 
         hasExploded = true;
