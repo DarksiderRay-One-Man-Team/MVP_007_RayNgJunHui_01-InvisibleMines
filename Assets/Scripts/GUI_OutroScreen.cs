@@ -46,6 +46,6 @@ public class GUI_OutroScreen : MonoBehaviour
     [Button]
     private void ClickButton()
     {
-        startGameButtonEventWrapper.WhenSelect.Invoke();
+        startGameButtonEventWrapper.WhenUnselect.Invoke();
     }
 }

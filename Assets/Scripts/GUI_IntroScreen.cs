@@ -32,6 +32,6 @@ public class GUI_IntroScreen : MonoBehaviour
     [Button]
     private void ClickButton()
     {
-        startGameButtonEventWrapper.WhenSelect.Invoke();
+        startGameButtonEventWrapper.WhenUnselect.Invoke();
     }
 }

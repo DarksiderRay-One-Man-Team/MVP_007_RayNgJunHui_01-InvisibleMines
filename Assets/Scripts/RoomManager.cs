@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Meta.XR.MRUtilityKit;
 using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Events;
 
 public class RoomManager : MonoBehaviour
 {
@@ -19,7 +21,14 @@ public class RoomManager : MonoBehaviour
     
     public delegate void OnMRUKSceneLoaded(MRUKRoom room, float roomSize, float availableSpaceSize);
     public OnMRUKSceneLoaded onMRUKSceneLoaded;
+    public UnityEvent OnMRUKSceneLoadFailed;
 
+    [Header("Material Config")]
+    [SerializeField] private Material roomMeshMat;
+    [SerializeField] private string globalShaderColorProperty;
+    [SerializeField] private Color globalColorBeforeGame;
+    [SerializeField] private Color globalColorDuringGame;
+    
     [Header("DEBUG")]
     [SerializeField] private TextMeshPro debugText;
     [SerializeField, ReadOnly] private Vector3 roomDimension;
@@ -36,11 +45,20 @@ public class RoomManager : MonoBehaviour
         roomBounds = GetComponent<BoxCollider>();
         Assert.IsNotNull(roomBounds);
         roomBounds.isTrigger = true;
+        
+        roomMeshMat.SetColor(globalShaderColorProperty, globalColorBeforeGame);
     }
 
     private void OnSceneLoaded()
     {
         room = mruk.GetCurrentRoom();
+
+        if (room == null)
+        {
+            OnMRUKSceneLoadFailed?.Invoke();
+            return;
+        }
+        
         room.gameObject.SetLayerRecursive("Room");
 
         //Setup collider for room to fit the bounds of the space (using collider as a Bounds type doesn't work with rotation)
@@ -66,6 +84,15 @@ public class RoomManager : MonoBehaviour
         {
             debugText.text = $"Room Size: {Mathf.Round(roomSize)}\nAvailable Space: {Mathf.Round(availableSpaceSize)}";
         }
+    }
+
+    public void FadeShaderColorInGame()
+    {
+        // DOTween.To(() => currentGlobalShaderColor, c => currentGlobalShaderColor = c, globalColorDuringGame, 0.25f)
+        //     .OnUpdate(() => Shader.SetGlobalColor(globalShaderColorProperty, currentGlobalShaderColor));
+        //     //.OnUpdate(() => Shader.SetGlobalColor(globalShaderColorProperty, currentGlobalShaderColor));
+            
+        roomMeshMat.DOColor(globalColorDuringGame,globalShaderColorProperty, 0.25f);
     }
 
 

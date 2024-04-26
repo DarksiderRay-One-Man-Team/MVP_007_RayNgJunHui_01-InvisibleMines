@@ -98,6 +98,8 @@ public class InvisibleMinesGameManager : MonoBehaviour
     [Button]
     public void StartGame()
     {
+        roomManager.FadeShaderColorInGame();
+        
         noOfLivesRemaining = noOfLivesGiven;
         //onScreenGUI_LivesRemaining.InitializeLives(noOfLivesRemaining);
         onLivesInitialised?.Invoke(noOfLivesRemaining);
