@@ -40,6 +40,7 @@ public class Mine : MonoBehaviour
     public void SetActive(bool value)
     {
         isActive = value;
+        collider.enabled = value;
     }
 
     [Button]
