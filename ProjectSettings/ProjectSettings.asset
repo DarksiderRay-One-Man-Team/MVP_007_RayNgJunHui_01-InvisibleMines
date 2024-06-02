@@ -163,7 +163,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.DarksiderRay.InvisibleMines
-    Standalone: com.Unity-Technologies.com.unity.template.urp-blank
+    Standalone: com.DarksiderRay.Invisible-Mines
     iPhone: com.Unity-Technologies.com.unity.template.urp-blank
   buildNumber:
     Standalone: 0
