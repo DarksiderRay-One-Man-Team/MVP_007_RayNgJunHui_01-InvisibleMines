@@ -2798,7 +2798,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   SurfaceClearanceDistance: 1
-  maxHeight: 1.5
+  maxHeight: 2
   distanceRefTransform: {fileID: 766201805}
   minDistance: 1
 --- !u!1001 &1297574511
