@@ -897,6 +897,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1180250402}
+  - {fileID: 1270125084}
   - {fileID: 458798165}
   - {fileID: 1674453807}
   - {fileID: 1377302642}
@@ -2739,6 +2740,67 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1244785953}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1270125083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1270125084}
+  - component: {fileID: 1270125085}
+  m_Layer: 0
+  m_Name: MultiSpawn_AirButtonGroups
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1270125084
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270125083}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 420498708}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1270125085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270125083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53fb71c00c272534faf9516ba4dd506a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnOnStart: 0
+  SpawnObject: {fileID: 3581932679229745626, guid: 563bddcd529150342ac3f09c9440bb07,
+    type: 3}
+  SpawnAmount: 12
+  MaxIterations: 1000
+  SpawnLocationConfigs:
+  - spawnLocation: 0
+    labels: -1
+  CheckOverlaps: 1
+  OverrideBounds: -1
+  LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  SurfaceClearanceDistance: 1
+  maxHeight: 1.5
+  distanceRefTransform: {fileID: 766201805}
+  minDistance: 1
 --- !u!1001 &1297574511
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3076,7 +3138,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec1471eb1ab70f40b745031a8df022a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskButtonSpawner: {fileID: 1180250401}
+  taskButtonSpawners:
+  - {fileID: 1180250401}
+  - {fileID: 1270125085}
   taskInteractableSpawnCount: 12
   tasksRemaining: []
   noOfCompletedTasks: 0
