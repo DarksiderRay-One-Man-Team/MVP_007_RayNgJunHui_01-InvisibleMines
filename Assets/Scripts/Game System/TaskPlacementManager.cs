@@ -7,7 +7,8 @@ using UnityEngine.Assertions;
 public class TaskPlacementManager : MonoBehaviour
 {
     [Header("Task Spawn Config")]
-    [SerializeField] private FindSpawnPositions_Custom taskButtonSpawner;
+    //[SerializeField] private FindSpawnPositions_Custom taskButtonSpawner;
+    [SerializeField] private List<FindSpawnPositions_Custom> taskButtonSpawners = new();
     [SerializeField] private int taskInteractableSpawnCount = 12;
 
     [Header("Task Completion Status")]
@@ -20,7 +21,8 @@ public class TaskPlacementManager : MonoBehaviour
     
     private void Awake()
     {
-        Assert.IsNotNull(taskButtonSpawner);
+        //Assert.IsNotNull(taskButtonSpawner);
+        Assert.IsTrue(taskButtonSpawners.Count > 0);
     }
 
     public void PlaceInitialTasks()
@@ -30,21 +32,47 @@ public class TaskPlacementManager : MonoBehaviour
 
     private void AddNewTasks(int spawnCount)
     {
-        // TODO Fixed bounds check for avoiding overlaps
-        taskButtonSpawner.StartSpawn(spawnCount, out var taskButtons);
-        foreach (var button in taskButtons)
+        int[] incrementCounts = new int[taskButtonSpawners.Count];
+        
+        for (int i = 0; i < spawnCount; i++)
         {
-            if (button.TryGetComponent(out TaskInteractable taskInteractable))
+            var index = Random.Range(0, taskButtonSpawners.Count);
+            incrementCounts[index]++;
+        }
+
+        for (int i = 0; i < taskButtonSpawners.Count; i++)
+        {
+            var taskButtonSpawner = taskButtonSpawners[i];
+            taskButtonSpawner.StartSpawn(incrementCounts[i], out var taskButtons);
+            foreach (var button in taskButtons)
             {
-                tasksRemaining.Add(taskInteractable);
-                taskInteractable.onTaskComplete += () =>
+                if (button.TryGetComponent(out TaskInteractable taskInteractable))
                 {
-                    noOfCompletedTasks++;
-                    tasksRemaining.Remove(taskInteractable);
-                    AddNewTasks(1);
-                };
+                    tasksRemaining.Add(taskInteractable);
+                    taskInteractable.onTaskComplete += () =>
+                    {
+                        noOfCompletedTasks++;
+                        tasksRemaining.Remove(taskInteractable);
+                        AddNewTasks(1);
+                    };
+                }
             }
         }
+        
+        // taskButtonSpawner.StartSpawn(spawnCount, out var taskButtons);
+        // foreach (var button in taskButtons)
+        // {
+        //     if (button.TryGetComponent(out TaskInteractable taskInteractable))
+        //     {
+        //         tasksRemaining.Add(taskInteractable);
+        //         taskInteractable.onTaskComplete += () =>
+        //         {
+        //             noOfCompletedTasks++;
+        //             tasksRemaining.Remove(taskInteractable);
+        //             AddNewTasks(1);
+        //         };
+        //     }
+        // }
         
         onNumberOfCompletedTasksUpdated?.Invoke(noOfCompletedTasks);
     }
