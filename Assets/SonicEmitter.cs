@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -15,7 +16,7 @@ public class SonicEmitter : MonoBehaviour
 
     void Start()
     {
-        initialScale = transform.localScale;
+        initialScale = _paticles.localScale;
     }
 
     
@@ -23,6 +24,7 @@ public class SonicEmitter : MonoBehaviour
     {
         
     }
+    [Button]
     public void _SonicEmitter()
     {
        ScaleUp();

@@ -13,7 +13,7 @@ public class EMP : MonoBehaviour
 
 
         //TriggerSphereLeft.SwitchState();
-        TriggerSphereRight.SwitchState();
+        //TriggerSphereRight.SwitchState();
         
     }
 }

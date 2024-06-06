@@ -7,7 +7,7 @@ public class LethalCheck : MonoBehaviour
 {
     public delegate void OnLethalInvoked();
     public OnLethalInvoked onLethalInvoked;
-    public enum State
+    /*public enum State
     {
         
         Normal,
@@ -60,8 +60,16 @@ public class LethalCheck : MonoBehaviour
                 onLethalInvoked?.Invoke();
             }
         }
+    }*/
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.TryGetComponent(out Mine mine))
+        {
+            mine.Explode();
+            onLethalInvoked?.Invoke();
+        }
     }
 
-    
+
 }
 
