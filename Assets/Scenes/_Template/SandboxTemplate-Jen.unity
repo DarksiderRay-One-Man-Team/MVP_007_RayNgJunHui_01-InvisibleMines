@@ -586,6 +586,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1377302642}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!114 &207931738 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8647015265851557735, guid: aff7791728d0004498f69d480b02585d,
@@ -598,6 +599,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e70168f6b46f5484595b152df83de421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+>>>>>>> parent of 687f4a0 (sonic emitter)
 --- !u!1 &216575092
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,79 +633,6 @@ Transform:
   - {fileID: 1950610097}
   m_Father: {fileID: 1853942589}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &313656481
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1878010482}
-    m_Modifications:
-    - target: {fileID: 5841275377868706828, guid: bc242319e5f2bd842999ab7665ad2d78,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5841275377868706828, guid: bc242319e5f2bd842999ab7665ad2d78,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5841275377868706828, guid: bc242319e5f2bd842999ab7665ad2d78,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5841275377868706828, guid: bc242319e5f2bd842999ab7665ad2d78,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5841275377868706828, guid: bc242319e5f2bd842999ab7665ad2d78,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5841275377868706828, guid: bc242319e5f2bd842999ab7665ad2d78,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5841275377868706828, guid: bc242319e5f2bd842999ab7665ad2d78,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5841275377868706828, guid: bc242319e5f2bd842999ab7665ad2d78,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5841275377868706828, guid: bc242319e5f2bd842999ab7665ad2d78,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5841275377868706828, guid: bc242319e5f2bd842999ab7665ad2d78,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5841275377868706831, guid: bc242319e5f2bd842999ab7665ad2d78,
-        type: 3}
-      propertyPath: m_Name
-      value: ControllerGrabInteractor
-      objectReference: {fileID: 0}
-    - target: {fileID: 8610105883944576685, guid: bc242319e5f2bd842999ab7665ad2d78,
-        type: 3}
-      propertyPath: _controller
-      value: 
-      objectReference: {fileID: 1182476498}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: bc242319e5f2bd842999ab7665ad2d78, type: 3}
 --- !u!1 &335288916
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,12 +1145,6 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
---- !u!4 &513428284 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5841275377868706828, guid: bc242319e5f2bd842999ab7665ad2d78,
-    type: 3}
-  m_PrefabInstance: {fileID: 1497865816}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &579107708 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2296141232796561049, guid: cee191920b8eb41b0960b1082a393a3e,
@@ -2133,6 +2057,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &859599977
 GameObject:
   m_ObjectHideFlags: 0
@@ -2230,6 +2155,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> parent of 687f4a0 (sonic emitter)
 --- !u!1 &910257085
 GameObject:
   m_ObjectHideFlags: 0
@@ -2655,12 +2582,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105555106}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1128493202 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5841275377868706828, guid: bc242319e5f2bd842999ab7665ad2d78,
-    type: 3}
-  m_PrefabInstance: {fileID: 313656481}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1180250400
 GameObject:
   m_ObjectHideFlags: 0
@@ -2724,18 +2645,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 420498708}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1182476498 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7896415809876072180, guid: ffe18aba6c1fa79428aa9a0fa121ef5b,
-    type: 3}
-  m_PrefabInstance: {fileID: 2303221475917674469}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ae60cfa43388e449a7518f36418f81c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1204729598
 GameObject:
   m_ObjectHideFlags: 0
@@ -3696,12 +3605,6 @@ Transform:
   - {fileID: 1853942589}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1415034739 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 131022995729308200, guid: ffe18aba6c1fa79428aa9a0fa121ef5b,
-    type: 3}
-  m_PrefabInstance: {fileID: 2303221475917674469}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1455064314
 GameObject:
   m_ObjectHideFlags: 0
@@ -3859,79 +3762,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2303221475917674469}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1497865816
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1415034739}
-    m_Modifications:
-    - target: {fileID: 5841275377868706828, guid: bc242319e5f2bd842999ab7665ad2d78,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5841275377868706828, guid: bc242319e5f2bd842999ab7665ad2d78,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5841275377868706828, guid: bc242319e5f2bd842999ab7665ad2d78,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5841275377868706828, guid: bc242319e5f2bd842999ab7665ad2d78,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5841275377868706828, guid: bc242319e5f2bd842999ab7665ad2d78,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5841275377868706828, guid: bc242319e5f2bd842999ab7665ad2d78,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5841275377868706828, guid: bc242319e5f2bd842999ab7665ad2d78,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5841275377868706828, guid: bc242319e5f2bd842999ab7665ad2d78,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5841275377868706828, guid: bc242319e5f2bd842999ab7665ad2d78,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5841275377868706828, guid: bc242319e5f2bd842999ab7665ad2d78,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5841275377868706831, guid: bc242319e5f2bd842999ab7665ad2d78,
-        type: 3}
-      propertyPath: m_Name
-      value: ControllerGrabInteractor
-      objectReference: {fileID: 0}
-    - target: {fileID: 8610105883944576685, guid: bc242319e5f2bd842999ab7665ad2d78,
-        type: 3}
-      propertyPath: _controller
-      value: 
-      objectReference: {fileID: 1766853036}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: bc242319e5f2bd842999ab7665ad2d78, type: 3}
 --- !u!1 &1506243983
 GameObject:
   m_ObjectHideFlags: 0
@@ -4487,18 +4317,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1766853036 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3883964056628592418, guid: ffe18aba6c1fa79428aa9a0fa121ef5b,
-    type: 3}
-  m_PrefabInstance: {fileID: 2303221475917674469}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ae60cfa43388e449a7518f36418f81c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1776033298 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6660898767612676950, guid: ffe18aba6c1fa79428aa9a0fa121ef5b,
@@ -4569,12 +4387,6 @@ Transform:
   - {fileID: 216575093}
   m_Father: {fileID: 1398805859}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1878010482 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 576797927519147204, guid: ffe18aba6c1fa79428aa9a0fa121ef5b,
-    type: 3}
-  m_PrefabInstance: {fileID: 2303221475917674469}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1879271628
 GameObject:
   m_ObjectHideFlags: 0
@@ -5302,6 +5114,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062491961}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+<<<<<<< HEAD
 --- !u!1001 &274455547058022809
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5370,6 +5183,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aff7791728d0004498f69d480b02585d, type: 3}
+=======
+>>>>>>> parent of 687f4a0 (sonic emitter)
 --- !u!1001 &2303221475917674469
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5485,15 +5300,7 @@ PrefabInstance:
       objectReference: {fileID: 2053251511}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 131022995729308200, guid: ffe18aba6c1fa79428aa9a0fa121ef5b,
-        type: 3}
-      insertIndex: 0
-      addedObject: {fileID: 513428284}
-    - targetCorrespondingSourceObject: {fileID: 576797927519147204, guid: ffe18aba6c1fa79428aa9a0fa121ef5b,
-        type: 3}
-      insertIndex: 0
-      addedObject: {fileID: 1128493202}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 629976551719160887, guid: ffe18aba6c1fa79428aa9a0fa121ef5b,
         type: 3}
@@ -5524,6 +5331,7 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: ffe18aba6c1fa79428aa9a0fa121ef5b, type: 3}
+<<<<<<< HEAD
 --- !u!1001 &8733087799389610300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5597,6 +5405,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1a66516a0b1d7446ad327691eab8da5, type: 3}
+=======
+>>>>>>> parent of 687f4a0 (sonic emitter)
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -5606,7 +5416,6 @@ SceneRoots:
   - {fileID: 1709276473}
   - {fileID: 23387062}
   - {fileID: 744021454}
-  - {fileID: 859599980}
   - {fileID: 2303221475917674469}
   - {fileID: 1398805859}
   - {fileID: 1506243986}
@@ -5623,5 +5432,8 @@ SceneRoots:
   - {fileID: 1626617405}
   - {fileID: 1544518852}
   - {fileID: 1088643993}
+<<<<<<< HEAD
   - {fileID: 274455547058022809}
   - {fileID: 8733087799389610300}
+=======
+>>>>>>> parent of 687f4a0 (sonic emitter)
