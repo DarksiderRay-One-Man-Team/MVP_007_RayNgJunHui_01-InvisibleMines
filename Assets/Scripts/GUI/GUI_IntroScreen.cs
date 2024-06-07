@@ -99,22 +99,3 @@ public class GUI_IntroScreen : MonoBehaviour
         onComplete?.Invoke();
     }
 }
-
-[Serializable]
-public class GUI_IntroSubScreen
-{
-    public enum SubScreen
-    {
-        Title,
-        Tutorial,
-        Equipment
-    }
-
-    public SubScreen type;
-    public GameObject subScreenObject;
-
-    public void ToggleSubScreen(bool value, float scaleDuration = 0f)
-    {
-        subScreenObject.transform.DOScale(value? Vector3.one: Vector3.zero, scaleDuration);
-    }
-}
