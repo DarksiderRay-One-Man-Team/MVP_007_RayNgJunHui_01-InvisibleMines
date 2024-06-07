@@ -13,6 +13,7 @@ public class SonicEmitter : MonoBehaviour
     public Transform _paticles;
     public float _ScaleFactor = 2.0f;
     public float _ScaleDuration = 1.0f;
+    public float delay = 1.0f;
 
     void Start()
     {
@@ -45,7 +46,7 @@ public class SonicEmitter : MonoBehaviour
     {
         StopAllCoroutines();
         StartCoroutine(ScaleOverTime(initialScale * _ScaleFactor));
-        Invoke("ScaleDown", _ScaleDuration);
+        StartCoroutine(CallFunctionAfterDelay(delay));
     }
 
     
@@ -70,6 +71,12 @@ public class SonicEmitter : MonoBehaviour
         }
 
         _paticles.localScale = targetScale;
+    }
+    IEnumerator CallFunctionAfterDelay(float delayTime)
+    {
+        
+        yield return new WaitForSeconds(delayTime);
+        ScaleDown();
     }
     private void OnDrawGizmosSelected()
     {
