@@ -3418,18 +3418,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2e00db6d2dfa42ac8d821db8d493a44, type: 3}
---- !u!114 &1317202311 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3921244848110913733, guid: 00c21a32d50bdf34b81fda4dac255349,
-    type: 3}
-  m_PrefabInstance: {fileID: 2303221475917674469}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 317e663e2bb60ea408fe22b908b59295, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1337876110
 GameObject:
   m_ObjectHideFlags: 0
@@ -4747,18 +4735,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f987fb58e4c004bbab2a9177298fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1907366111 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3348947134190775348, guid: 00c21a32d50bdf34b81fda4dac255349,
-    type: 3}
-  m_PrefabInstance: {fileID: 2303221475917674469}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 317e663e2bb60ea408fe22b908b59295, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1950610096
 GameObject:
   m_ObjectHideFlags: 0
@@ -5482,44 +5458,6 @@ PrefabInstance:
       propertyPath: mainGameManager
       value: 
       objectReference: {fileID: 1339626735}
-    - target: {fileID: 5723836513765857563, guid: 00c21a32d50bdf34b81fda4dac255349,
-        type: 3}
-      propertyPath: tutorialText
-      value: 
-      objectReference: {fileID: 2303221475917674470}
-    - target: {fileID: 5723836513765857563, guid: 00c21a32d50bdf34b81fda4dac255349,
-        type: 3}
-      propertyPath: nextButtonInteractableView
-      value: 
-      objectReference: {fileID: 1317202311}
-    - target: {fileID: 5723836513765857563, guid: 00c21a32d50bdf34b81fda4dac255349,
-        type: 3}
-      propertyPath: tutorialObjects.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5723836513765857563, guid: 00c21a32d50bdf34b81fda4dac255349,
-        type: 3}
-      propertyPath: tutorialObjects.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: b4f5266abc5fc3a449d307abb8da9fa2,
-        type: 2}
-    - target: {fileID: 5723836513765857563, guid: 00c21a32d50bdf34b81fda4dac255349,
-        type: 3}
-      propertyPath: tutorialObjects.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: fcf747d0aeb391548b52ecb1e01298ec,
-        type: 2}
-    - target: {fileID: 5723836513765857563, guid: 00c21a32d50bdf34b81fda4dac255349,
-        type: 3}
-      propertyPath: tutorialObjects.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 8ecccb9f9ca9acf4299cc1a8e781fd9c,
-        type: 2}
-    - target: {fileID: 5723836513765857563, guid: 00c21a32d50bdf34b81fda4dac255349,
-        type: 3}
-      propertyPath: previousButtonInteractableView
-      value: 
-      objectReference: {fileID: 1907366111}
     - target: {fileID: 5730008280211377990, guid: 00c21a32d50bdf34b81fda4dac255349,
         type: 3}
       propertyPath: mainGameManager
@@ -5597,18 +5535,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 00c21a32d50bdf34b81fda4dac255349, type: 3}
---- !u!114 &2303221475917674470 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7306711130149464900, guid: 00c21a32d50bdf34b81fda4dac255349,
-    type: 3}
-  m_PrefabInstance: {fileID: 2303221475917674469}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
