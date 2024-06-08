@@ -14,7 +14,14 @@ public class LethalCheck : MonoBehaviour
         
         Normal,
         EMP
+    } 
+    private enum Fire
+    {
+        
+        OffFire,
+        OnFire
     }
+    private Fire _fire ;
     public State currentState;
     public float _EMPTime = 5.0f;
     public TextMeshProUGUI countdownText;
@@ -50,9 +57,12 @@ public class LethalCheck : MonoBehaviour
     }
     void HandleEMPState()
     {
-
-        StartCoroutine(_empDelay(_EMPTime));
-
+        if (_fire == Fire.OffFire)
+        {
+            StartCoroutine(_empDelay(_EMPTime));
+        }
+        else Debug.LogWarning("Can't fire now");
+        
     }
     void HandleNormalState()
     {
@@ -70,7 +80,7 @@ public class LethalCheck : MonoBehaviour
     {
         float elapsedTime = 0f;
 
-        
+        _fire = Fire.OnFire;
         while (elapsedTime < delayTime)
         {
             float remainingTime = delayTime - elapsedTime;
@@ -82,7 +92,7 @@ public class LethalCheck : MonoBehaviour
         
         countdownText.text = "Time remaining: 0.0 seconds";
         currentState = State.Normal;
-
+        _fire = Fire.OffFire;
 
 
     }

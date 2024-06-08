@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/EMP.cs.meta
-guid: 0b379fa339914594eb672644704f1920
-========
-guid: d5220e4e8476ede44a2502e2267f23a1
->>>>>>>> parent of 687f4a0 (sonic emitter):Assets/NewBehaviourScript.cs.meta
+guid: 380c9e52f0bec634f8a21f6ebd86c49a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

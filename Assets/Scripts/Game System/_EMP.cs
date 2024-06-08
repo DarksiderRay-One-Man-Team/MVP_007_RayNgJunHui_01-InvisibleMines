@@ -2,18 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EMP : MonoBehaviour
+public class _EMP : MonoBehaviour
 {
-
     public LethalCheck TriggerSphereLeft;
     public LethalCheck TriggerSphereRight;
 
-    public void _EMP()
+    public void emp()
     {
 
 
         TriggerSphereLeft.SwitchState();
         TriggerSphereRight.SwitchState();
-        
+
     }
 }
