@@ -19106,6 +19106,11 @@ PrefabInstance:
       propertyPath: _interactors.Array.data[3]
       value: 
       objectReference: {fileID: 1657275383}
+    - target: {fileID: 1253316808528510003, guid: ffe18aba6c1fa79428aa9a0fa121ef5b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1474060358236320186, guid: ffe18aba6c1fa79428aa9a0fa121ef5b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19252,6 +19257,11 @@ PrefabInstance:
       propertyPath: _interactors.Array.data[3]
       value: 
       objectReference: {fileID: 1066061656}
+    - target: {fileID: 6263609266193472672, guid: ffe18aba6c1fa79428aa9a0fa121ef5b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6297819553925598275, guid: ffe18aba6c1fa79428aa9a0fa121ef5b,
         type: 3}
       propertyPath: controllerObj
@@ -19272,7 +19282,10 @@ PrefabInstance:
       propertyPath: minePlacementManager
       value: 
       objectReference: {fileID: 2053251511}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1910821670243757489, guid: ffe18aba6c1fa79428aa9a0fa121ef5b, type: 3}
+    - {fileID: 5611458917433292156, guid: ffe18aba6c1fa79428aa9a0fa121ef5b, type: 3}
+    - {fileID: 1489486225379881491, guid: ffe18aba6c1fa79428aa9a0fa121ef5b, type: 3}
     m_RemovedGameObjects:
     - {fileID: 2704781231714767781, guid: ffe18aba6c1fa79428aa9a0fa121ef5b, type: 3}
     - {fileID: 4732669405559539706, guid: ffe18aba6c1fa79428aa9a0fa121ef5b, type: 3}
@@ -19497,6 +19510,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8746445401021691099, guid: a71928a599f4b6b408a68a72b797f950,
+        type: 3}
+      propertyPath: _fogPrefab
+      value: 
+      objectReference: {fileID: 6266865841700083767, guid: 92c1fb82f748d294cb4f7d0645e36746,
+        type: 3}
     - target: {fileID: 9202097778996835072, guid: a71928a599f4b6b408a68a72b797f950,
         type: 3}
       propertyPath: m_Mesh
