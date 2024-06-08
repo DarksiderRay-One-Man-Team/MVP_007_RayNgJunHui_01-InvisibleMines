@@ -5686,7 +5686,7 @@ MonoBehaviour:
     Callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2735546953643706510}
+        - m_Target: {fileID: 7443747214881943554}
           m_TargetAssemblyTypeName: EMP, Assembly-CSharp
           m_MethodName: _EMP
           m_Mode: 1
@@ -6321,20 +6321,6 @@ MonoBehaviour:
   _releaseDistance: 0
   _resetGrabOnGrabsUpdated: 1
   _physicsGrabbable: {fileID: 0}
---- !u!114 &2735546953643706510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7443747214881943553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e867e098de0a294da805a5e2be211e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TriggerSphereLeft: {fileID: 1776033298}
-  TriggerSphereRight: {fileID: 1896920639}
 --- !u!4 &2810812888244269525
 Transform:
   m_ObjectHideFlags: 0
@@ -6834,7 +6820,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1688578196823335978}
-  - component: {fileID: 2735546953643706510}
+  - component: {fileID: 7443747214881943554}
   m_Layer: 0
   m_Name: EMP
   m_TagString: Untagged
@@ -6842,6 +6828,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7443747214881943554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7443747214881943553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b379fa339914594eb672644704f1920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TriggerSphereLeft: {fileID: 1776033298}
+  TriggerSphereRight: {fileID: 1896920639}
 --- !u!64 &7542226392499418911
 MeshCollider:
   m_ObjectHideFlags: 0
