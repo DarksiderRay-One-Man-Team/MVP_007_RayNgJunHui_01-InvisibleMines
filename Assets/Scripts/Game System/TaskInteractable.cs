@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using NaughtyAttributes;
 using UnityEngine;
@@ -10,12 +11,21 @@ public abstract class TaskInteractable : MonoBehaviour
     [Header("Spawn/Despawn Config")]
     [SerializeField] private bool scaleTransitionOnStart = true;
     [SerializeField] private float scaleTransitionDuration = 0.25f;
+    [SerializeField] private List<ButtonShadow> buttonShadows;
+    [SerializeField] private List<MeshRenderer> visualMeshRenderers = new();
+    [SerializeField] private Vector2 dissolveRange = new(0, 1);
+    [SerializeField, Range(0, 1)] private float dissolveLerp = 1;
+    [SerializeField, ReadOnly] private float dissolveValue;
 
     [Header("Task Status")]
     [SerializeField, ReadOnly] private bool isCompleted = false;
 
     public delegate void OnTaskComplete();
     public OnTaskComplete onTaskComplete;
+    
+    private Vector3 originalScale;
+
+    private bool isDespawning = false;
 
     protected virtual void Awake()
     {
@@ -27,11 +37,20 @@ public abstract class TaskInteractable : MonoBehaviour
     {
         if (scaleTransitionOnStart)
         {
-            var originalScale = transform.localScale;
-            transform.localScale = Vector3.zero;
-            transform.DOScale(originalScale, scaleTransitionDuration);
+            originalScale = transform.localScale;
+            Spawn();
         }
     }
+
+    // void Update()
+    // {
+    //     dissolveValue = 1 - Mathf.Lerp(dissolveRange.x, dissolveRange.y, dissolveLerp);
+    //     
+    //     foreach (var renderer in visualMeshRenderers)
+    //     {
+    //         renderer.material.SetFloat("_ShaderDissolve", dissolveValue);
+    //     }
+    // }
 
     [Button]
     protected void CompleteTask()
@@ -40,17 +59,70 @@ public abstract class TaskInteractable : MonoBehaviour
         
         onTaskComplete?.Invoke();
         isCompleted = true;
-        transform.DOScale(Vector3.zero, scaleTransitionDuration).onComplete += () =>
-        {
-            Destroy(gameObject);
-        };
+        Despawn();
     }
 
-    public void Destroy()
+    protected virtual void Spawn()
     {
-        transform.DOScale(Vector3.zero, scaleTransitionDuration).onComplete += () =>
+        // transform.localScale = Vector3.zero;
+        // transform.DOScale(originalScale, scaleTransitionDuration);
+
+        foreach (var shadow in buttonShadows)
         {
-            Destroy(gameObject);
-        };
+            shadow.gameObject.SetActive(true);
+        }
+        
+        dissolveLerp = 1;
+        DOTween.To(() => dissolveLerp, d => dissolveLerp = d, 0, scaleTransitionDuration).
+            OnUpdate(() =>
+            {
+                dissolveValue = 1 - Mathf.Lerp(dissolveRange.x, dissolveRange.y, dissolveLerp);
+            foreach (var renderer in visualMeshRenderers)
+            {
+                renderer.material.SetFloat("_ShaderDissolve", dissolveValue);
+            }
+        });
+    }
+    
+    public virtual void Despawn()
+    {
+        // transform.DOScale(Vector3.zero, scaleTransitionDuration).onComplete += () =>
+        // {
+        //     Destroy(gameObject);
+        // };
+
+        // attempt to prevent visual bug when despawning
+        if (isDespawning)
+            return;
+
+        isDespawning = true;
+        
+        foreach (var shadow in buttonShadows)
+        {
+            shadow.gameObject.SetActive(false);
+        }
+        
+        DOTween.To(() => dissolveLerp, d => dissolveLerp = d, 1, scaleTransitionDuration).
+            OnUpdate(() =>
+            {
+                dissolveValue = 1 - Mathf.Lerp(dissolveRange.x, dissolveRange.y, dissolveLerp);
+                foreach (var renderer in visualMeshRenderers)
+                {
+                    renderer.material.SetFloat("_ShaderDissolve", dissolveValue);
+                }
+            }).OnComplete(() => Destroy(gameObject));
+        
+    }
+
+    [Button]
+    private void GetAllShadows()
+    {
+        buttonShadows = GetComponentsInChildren<ButtonShadow>(true).ToList();
+    }
+
+    [Button]
+    private void GetAllRenderers()
+    {
+        visualMeshRenderers = GetComponentsInChildren<MeshRenderer>(true).ToList();
     }
 }

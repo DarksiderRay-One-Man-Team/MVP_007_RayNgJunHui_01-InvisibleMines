@@ -87,7 +87,7 @@ public class TaskPlacementManager : MonoBehaviour
     {
         foreach (var button in tasksRemaining)
         {
-            button.Destroy();
+            button.Despawn();
         }
         tasksRemaining.Clear();
     }

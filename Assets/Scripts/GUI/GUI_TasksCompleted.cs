@@ -12,7 +12,6 @@ public class GUI_TasksCompleted : MonoBehaviour
 
     [Header("Text Format")]
     [SerializeField] private bool followTextFormat;
-
     [SerializeField] private string textFormat = "D2";
 
     void Awake()
