@@ -17,6 +17,9 @@ public class InvisibleMinesGameManager : MonoBehaviour
     [Header("Game Status UI")]
     [SerializeField] private GameObject gameStatusUI;
     [SerializeField] private GameObject gameStatusUI_HUD;
+
+    [Header("Equipment Loadout System")]
+    [SerializeField] private GameObject equipmentLoadoutSystemObj;
     
     [Header("Lethal Checks")]
     [SerializeField] private GUI_LivesRemaining onScreenGUI_LivesRemaining;
@@ -55,6 +58,9 @@ public class InvisibleMinesGameManager : MonoBehaviour
             //StartGame();
         };
         
+        gameStatusUI_HUD.SetActive(false);
+        equipmentLoadoutSystemObj.SetActive(false);
+        
         Assert.IsNotNull(onScreenGUI_LivesRemaining);
         Assert.IsTrue(noOfLivesGiven > 0);
         foreach (var lethalCheck in lethalChecks)
@@ -81,6 +87,7 @@ public class InvisibleMinesGameManager : MonoBehaviour
             minePlacementManager.ToggleAllMineVisibilities(true);
 
             gameStatusUI_HUD.SetActive(false);
+            equipmentLoadoutSystemObj.SetActive(false);
 
             ToggleLethalChecks(false);
         };
@@ -123,6 +130,8 @@ public class InvisibleMinesGameManager : MonoBehaviour
         
         gameStatusUI.SetActive(true);
         gameStatusUI_HUD.SetActive(true);
+        
+        equipmentLoadoutSystemObj.SetActive(true);
 
         onGameStart?.Invoke();
     }
