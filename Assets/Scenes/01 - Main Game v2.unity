@@ -2055,7 +2055,7 @@ PrefabInstance:
         type: 3}
       propertyPath: MeshMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: ba410e0fe53af43a09cb286376cbf171, type: 2}
+      objectReference: {fileID: 2100000, guid: fa8a839689ca73748bdee59d03e4b178, type: 2}
     - target: {fileID: 2296141232796561049, guid: cee191920b8eb41b0960b1082a393a3e,
         type: 3}
       propertyPath: SpawnOnStart
@@ -3779,7 +3779,7 @@ PrefabInstance:
         type: 3}
       propertyPath: MeshMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: ba410e0fe53af43a09cb286376cbf171, type: 2}
+      objectReference: {fileID: 2100000, guid: fa8a839689ca73748bdee59d03e4b178, type: 2}
     - target: {fileID: 2296141232796561049, guid: cee191920b8eb41b0960b1082a393a3e,
         type: 3}
       propertyPath: SpawnOnStart
