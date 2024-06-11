@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Tutorial Data - 00
   m_EditorClassIdentifier: 
   sceneObject: {fileID: 0}
-  text: This is Tutorial 0.
+  text: Your objective is to push as many buttons as you can while invisible mines
+    will be spawned periodically throughout the game!

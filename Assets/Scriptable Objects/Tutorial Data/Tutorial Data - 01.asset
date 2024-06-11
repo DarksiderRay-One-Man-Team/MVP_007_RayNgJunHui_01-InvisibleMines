@@ -13,4 +13,9 @@ MonoBehaviour:
   m_Name: Tutorial Data - 01
   m_EditorClassIdentifier: 
   sceneObject: {fileID: 0}
-  text: This is Tutorial 1.
+  text: 'Your hands must not touch these mines at ALL COSTS - and you have 3 lives,
+    so make it count.
+
+
+    HINT: Your hands are equiped with proximity sensors,
+    which tells you whether they are in close proximity with a mine!'

@@ -353,6 +353,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9060738365723988479}
+  - component: {fileID: 7585650413627912677}
   m_Layer: 0
   m_Name: '[Equipment Description]'
   m_TagString: Untagged
@@ -381,3 +382,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.1, y: 0.01779}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7585650413627912677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8575658566708866884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8f259443dba5a74ba1e5cef2cdc0234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleText: {fileID: 3051691955855627389}
+  descriptionText: {fileID: 4798485083957500663}
+  equipmentData: {fileID: 0}

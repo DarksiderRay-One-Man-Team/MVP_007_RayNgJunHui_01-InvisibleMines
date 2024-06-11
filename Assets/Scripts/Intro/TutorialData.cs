@@ -6,5 +6,5 @@ using UnityEngine;
 public class TutorialData : ScriptableObject
 {
     public GameObject sceneObject;
-    public string text;
+    [TextArea(5, 10)]public string text;
 }

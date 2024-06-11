@@ -13,4 +13,9 @@ MonoBehaviour:
   m_Name: Tutorial Data - 02
   m_EditorClassIdentifier: 
   sceneObject: {fileID: 0}
-  text: This is Tutorial 2.
+  text: 'You can utilize tools around your waist to help navigate the area (or even
+    handle mines at your disposal).
+
+
+    Check out the Equipments menu for more
+    details!'
