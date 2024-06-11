@@ -22,11 +22,22 @@ public class MarkerSpray : MonoBehaviour, IHandGrabUseDelegate
     private AnimationCurve _strengthCurve = AnimationCurve.EaseInOut(0f,0f,1f,1f);
     private List<GameObject> _listOfInstances = new();
     private Dictionary<Transform, Coroutine> _dictOfActiveCoroutines = new();
-    public void StartSpraying(){
+
+    private bool alreadySprayed = false;
+    
+    public void StartSpraying()
+    {
+        if (alreadySprayed)
+            return;
+
+        alreadySprayed = true;
         _particleSystem.Play();
-        InvokeRepeating(nameof(Spray), 0, _fogInstantiationInterval);
+        //InvokeRepeating(nameof(Spray), 0, _fogInstantiationInterval);
+        Spray();
     }
-    public void StopSpraying(){
+    public void StopSpraying()
+    {
+        alreadySprayed = false;
         _particleSystem.Stop();
         CancelInvoke();
     }
@@ -37,20 +48,20 @@ public class MarkerSpray : MonoBehaviour, IHandGrabUseDelegate
         _dictOfActiveCoroutines.Clear();
     }
     private void Spray(){
-        RaycastHit hit;
-        if (Physics.Raycast(_particleSprayOffset.position, _particleSprayOffset.forward, out hit, _fogInstantiationDistance)){
-            if (_dictOfActiveCoroutines.ContainsKey(hit.transform)){
-                StopCoroutine(_dictOfActiveCoroutines[hit.transform]);
-                _dictOfActiveCoroutines.Remove(hit.transform);
-            }
-            var coroutine = StartCoroutine(IncreaseScaleSmoothly(hit.transform));
-            _dictOfActiveCoroutines.Add(hit.transform, coroutine);
-        }
-        else
-        {
+        // RaycastHit hit;
+        // if (Physics.Raycast(_particleSprayOffset.position, _particleSprayOffset.forward, out hit, _fogInstantiationDistance)){
+        //     if (_dictOfActiveCoroutines.ContainsKey(hit.transform)){
+        //         StopCoroutine(_dictOfActiveCoroutines[hit.transform]);
+        //         _dictOfActiveCoroutines.Remove(hit.transform);
+        //     }
+        //     var coroutine = StartCoroutine(IncreaseScaleSmoothly(hit.transform));
+        //     _dictOfActiveCoroutines.Add(hit.transform, coroutine);
+        // }
+        // else
+        // {
             Vector3 spawnPosition = _particleSprayOffset.position + _particleSprayOffset.forward * _fogInstantiationDistance;
             _listOfInstances.Add(Instantiate(_fogPrefab, spawnPosition, _particleSprayOffset.rotation));
-        }
+        //}
     }
     private IEnumerator IncreaseScaleSmoothly(Transform targetTransform){
         Vector3 originalScale = targetTransform.localScale;
@@ -71,12 +82,14 @@ public class MarkerSpray : MonoBehaviour, IHandGrabUseDelegate
 
     public void BeginUse()
     {
+        Debug.Log("Begin Use");
         _dampedUseStrength = 0;
         _lastUseTime = Time.realtimeSinceStartup;
     }
 
     public void EndUse()
     {
+        Debug.Log("End Use");
         StopSpraying();
     }
 

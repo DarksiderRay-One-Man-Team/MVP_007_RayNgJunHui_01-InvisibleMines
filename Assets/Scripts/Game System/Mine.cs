@@ -37,6 +37,18 @@ public class Mine : MonoBehaviour
         meshRenderer.enabled = value;
     }
 
+    public void RevealTemp()
+    {
+        StartCoroutine(StartRevealTemp());
+    }
+
+    IEnumerator StartRevealTemp()
+    {
+        ToggleMeshRenderer(true);
+        yield return new WaitForSeconds(3f);
+        ToggleMeshRenderer(false);
+    }
+
     public void SetActive(bool value)
     {
         isActive = value;
