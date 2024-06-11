@@ -1,8 +1,10 @@
 using System.Collections;
+using System.Collections.Generic;
+using Oculus.Interaction.HandGrab;
 using UnityEngine;
 using TMPro; 
 
-public class _SonicEmitter : MonoBehaviour
+public class _SonicEmitter : MonoBehaviour , IHandGrabUseDelegate
 {
     public float _EmitterRadius = 10.0f;
     public int maxAmmoCount = 3;
@@ -29,8 +31,26 @@ public class _SonicEmitter : MonoBehaviour
 
     }
 
+    public void BeginUse()
+    {
+        
+    }
+
+    public void EndUse()
+    {
+        
+    }
+    public float ComputeUseStrength(float strength)
+    {
+
+        return 0;
+    }
+
+
+
     public void SonicEmitter()
     {
+        
         if (currentAmmoCount > 0)
         {
             ScaleUp();
