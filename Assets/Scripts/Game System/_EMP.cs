@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Generic;
+using NaughtyAttributes;
 using Oculus.Interaction.HandGrab;
 using UnityEngine;
 
@@ -22,6 +23,8 @@ public class _EMP : MonoBehaviour,IHandGrabUseDelegate
 
         return 0;
     }
+    
+    [Button]
     public void emp()
     {
 

@@ -39,7 +39,8 @@ public class Mine : MonoBehaviour
 
     public void RevealTemp()
     {
-        StartCoroutine(StartRevealTemp());
+        //StartCoroutine(StartRevealTemp());
+        ToggleMeshRenderer(true);
     }
 
     IEnumerator StartRevealTemp()

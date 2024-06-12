@@ -1,10 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using Oculus.Interaction.HandGrab;
+using TMPro;
 using UnityEngine;
 
 public class MarkerSpray : MonoBehaviour, IHandGrabUseDelegate
 {
+    [Header("Ammo Count")]
+    [SerializeField] private int currentAmmoCount;
+    [SerializeField] private int maxAmmoCount = 5;
+    [SerializeField] private TextMeshProUGUI ammoText;
+    
     [SerializeField] private GameObject _fogPrefab;
     [SerializeField] private float _fogInstantiationDistance = 0.3f;
     [SerializeField] private Transform _triggerTransform;
@@ -24,13 +30,21 @@ public class MarkerSpray : MonoBehaviour, IHandGrabUseDelegate
     private Dictionary<Transform, Coroutine> _dictOfActiveCoroutines = new();
 
     private bool alreadySprayed = false;
+
+    void Start()
+    {
+        currentAmmoCount = maxAmmoCount;
+        UpdateAmmoDisplay();   
+    }
     
     public void StartSpraying()
     {
-        if (alreadySprayed)
+        if (alreadySprayed || currentAmmoCount == 0)
             return;
 
         alreadySprayed = true;
+        currentAmmoCount--;
+        UpdateAmmoDisplay();
         _particleSystem.Play();
         //InvokeRepeating(nameof(Spray), 0, _fogInstantiationInterval);
         Spray();
@@ -118,5 +132,13 @@ public class MarkerSpray : MonoBehaviour, IHandGrabUseDelegate
         if (progress >= _fireThresold)
             StartSpraying();
 
+    }
+    
+    private void UpdateAmmoDisplay()
+    {
+        if (ammoText != null)
+        {
+            ammoText.text = $"Sprays: {currentAmmoCount}/{maxAmmoCount}";
+        }
     }
 }
