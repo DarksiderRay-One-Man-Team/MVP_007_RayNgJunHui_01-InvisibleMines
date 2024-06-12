@@ -34,6 +34,9 @@ public class InvisibleMinesGameManager : MonoBehaviour
     [SerializeField] private OVRPassthroughLayer passthroughLayer_Normal;
     [SerializeField] private OVRPassthroughLayer passthroughLayer_Hurt;
 
+    [Header("Audio Managers")]
+    [SerializeField] private BGMManager bgmManager;
+    
     [Header("DEBUG")]
     //[SerializeField] private TextMeshPro debugText;
 
@@ -89,6 +92,8 @@ public class InvisibleMinesGameManager : MonoBehaviour
 
             gameStatusUI_HUD.SetActive(false);
             equipmentLoadoutSystemObj.SetActive(false);
+            
+            bgmManager.FadeInBGM();
 
             ToggleLethalChecks(false);
         };
@@ -134,6 +139,8 @@ public class InvisibleMinesGameManager : MonoBehaviour
         
         equipmentLoadoutSystem.ResetEquipments();
         equipmentLoadoutSystemObj.SetActive(true);
+
+        bgmManager.FadeOutBGM();
 
         onGameStart?.Invoke();
     }

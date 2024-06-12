@@ -30,7 +30,10 @@ public class MarkerSpray : Equipment, IHandGrabUseDelegate
     private Dictionary<Transform, Coroutine> _dictOfActiveCoroutines = new();
 
     private bool alreadySprayed = false;
-
+    
+    [Header("Audio")]
+    [SerializeField] private AudioSource sfxAudioSource;
+    
     void Start()
     {
         ResetAmmo();
@@ -74,6 +77,8 @@ public class MarkerSpray : Equipment, IHandGrabUseDelegate
             Vector3 spawnPosition = _particleSprayOffset.position + _particleSprayOffset.forward * _fogInstantiationDistance;
             _listOfInstances.Add(Instantiate(_fogPrefab, spawnPosition, _particleSprayOffset.rotation));
         //}
+
+        sfxAudioSource.Play();
     }
     private IEnumerator IncreaseScaleSmoothly(Transform targetTransform){
         Vector3 originalScale = targetTransform.localScale;

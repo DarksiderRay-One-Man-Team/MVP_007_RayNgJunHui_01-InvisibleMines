@@ -18,6 +18,9 @@ public class _SonicEmitter : Equipment
 
     //public TextMeshProUGUI ammoText;  
     
+    [Header("SFX")]
+    [SerializeField] private AudioSource sfxAudioSource;
+    
 
     void Start()
     {
@@ -43,6 +46,8 @@ public class _SonicEmitter : Equipment
             }
 
             DecrementAmmo();
+            
+            sfxAudioSource.Play();
         }
         
     }

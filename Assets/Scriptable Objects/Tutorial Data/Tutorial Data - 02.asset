@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Tutorial Data - 02
   m_EditorClassIdentifier: 
   sceneObject: {fileID: 0}
-  text: 'You can utilize tools around your waist to help navigate the area (or even
-    handle mines at your disposal).
+  text: 'You can utilize <color=yellow>tools around your waist</color> to help navigate
+    the area (or even handle mines at your disposal).
 
 
-    Check out the Equipments menu for more
-    details!'
+    Check out the <color=yellow>Equipments
+    menu</color> for more details!'

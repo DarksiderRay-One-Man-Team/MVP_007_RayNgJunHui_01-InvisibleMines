@@ -23,11 +23,11 @@ public class RoomManager : MonoBehaviour
     public OnMRUKSceneLoaded onMRUKSceneLoaded;
     public UnityEvent OnMRUKSceneLoadFailed;
 
-    [Header("Material Config")]
-    [SerializeField] private Material roomMeshMat;
-    [SerializeField] private string globalShaderColorProperty;
-    [SerializeField] private Color globalColorBeforeGame;
-    [SerializeField] private Color globalColorDuringGame;
+    // [Header("Material Config")]
+    // [SerializeField] private Material roomMeshMat;
+    // [SerializeField] private string globalShaderColorProperty;
+    // [SerializeField] private Color globalColorBeforeGame;
+    // [SerializeField] private Color globalColorDuringGame;
     
     [Header("DEBUG")]
     [SerializeField] private TextMeshPro debugText;
@@ -46,7 +46,7 @@ public class RoomManager : MonoBehaviour
         Assert.IsNotNull(roomBounds);
         roomBounds.isTrigger = true;
         
-        roomMeshMat.SetColor(globalShaderColorProperty, globalColorBeforeGame);
+        //roomMeshMat.SetColor(globalShaderColorProperty, globalColorBeforeGame);
     }
 
     private void OnSceneLoaded()
@@ -92,7 +92,7 @@ public class RoomManager : MonoBehaviour
         //     .OnUpdate(() => Shader.SetGlobalColor(globalShaderColorProperty, currentGlobalShaderColor));
         //     //.OnUpdate(() => Shader.SetGlobalColor(globalShaderColorProperty, currentGlobalShaderColor));
             
-        roomMeshMat.DOColor(globalColorDuringGame,globalShaderColorProperty, 0.25f);
+        //roomMeshMat.DOColor(globalColorDuringGame,globalShaderColorProperty, 0.25f);
     }
 
 

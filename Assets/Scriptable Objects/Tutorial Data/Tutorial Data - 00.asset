@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Tutorial Data - 00
   m_EditorClassIdentifier: 
   sceneObject: {fileID: 0}
-  text: 'Your objective is to push as many buttons as you can....
+  text: 'Your objective is to <color=yellow>push as many buttons as you can</color>....
 
 
     ...while
-    invisible mines will be spawned periodically throughout the game!'
+    <color=yellow>invisible mines</color> will be spawned periodically throughout
+    the game!'
