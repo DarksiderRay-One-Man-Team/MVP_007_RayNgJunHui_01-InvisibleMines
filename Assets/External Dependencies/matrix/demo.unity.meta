@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/External Dependencies/matrix/demo.unity.meta
 guid: 5915b1680eb903040b2e8754976bc2f8
+========
+guid: 8a788319556854129bdc000f8c46fc83
+>>>>>>>> origin/Lorenzo_UI_TextAnimator:Assets/Scenes/01 - Main Game v2_TextAnimator.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

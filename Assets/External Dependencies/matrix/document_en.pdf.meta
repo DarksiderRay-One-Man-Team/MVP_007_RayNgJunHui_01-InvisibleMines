@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/External Dependencies/matrix/document_en.pdf.meta
 guid: 590bf0b9ed02dd54ba9c6f9a3cc12d43
+========
+guid: 90f5fef50eecb684d83eee0b825b9570
+>>>>>>>> origin/Lorenzo_UI_TextAnimator:Assets/Sci-Fi Shader Pack/Assets/Packages/HDRP.unitypackage.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
