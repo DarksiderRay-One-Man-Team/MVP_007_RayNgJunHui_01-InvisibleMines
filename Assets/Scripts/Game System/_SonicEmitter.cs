@@ -4,11 +4,11 @@ using Oculus.Interaction.HandGrab;
 using UnityEngine;
 using TMPro; 
 
-public class _SonicEmitter : MonoBehaviour
+public class _SonicEmitter : Equipment
 {
     public float _EmitterRadius = 10.0f;
-    public int maxAmmoCount = 3;
-    private int currentAmmoCount;
+    //public int maxAmmoCount = 3;
+    //private int currentAmmoCount;
 
     private Vector3 initialScale;
     public Transform _particles;
@@ -16,27 +16,19 @@ public class _SonicEmitter : MonoBehaviour
     public float _ScaleDuration = 1.0f;
     public float delay = 1.0f;
 
-    public TextMeshProUGUI ammoText;  
+    //public TextMeshProUGUI ammoText;  
     
 
     void Start()
     {
         initialScale = _particles.localScale;
-        currentAmmoCount = maxAmmoCount; 
-        UpdateAmmoDisplay();   
+        ResetAmmo();
     }
-
-    void Update()
-    {
-
-    }
-
-
 
     public void SonicEmitter()
     {
         
-        if (currentAmmoCount > 0)
+        if (CheckAmmoCount())
         {
             ScaleUp();
             Collider[] objects = Physics.OverlapSphere(transform.position, _EmitterRadius);
@@ -50,8 +42,7 @@ public class _SonicEmitter : MonoBehaviour
                 }
             }
 
-            currentAmmoCount--; 
-            UpdateAmmoDisplay(); 
+            DecrementAmmo();
         }
         
     }
@@ -94,15 +85,6 @@ public class _SonicEmitter : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, _EmitterRadius);
-    }
-
-    
-    private void UpdateAmmoDisplay()
-    {
-        if (ammoText != null)
-        {
-            ammoText.text = $"Sonic: {currentAmmoCount}/{maxAmmoCount}";
-        }
     }
 
 

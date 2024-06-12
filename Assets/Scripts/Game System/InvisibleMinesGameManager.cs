@@ -19,6 +19,7 @@ public class InvisibleMinesGameManager : MonoBehaviour
     [SerializeField] private GameObject gameStatusUI_HUD;
 
     [Header("Equipment Loadout System")]
+    [SerializeField] private EquipmentLoadoutSystem equipmentLoadoutSystem;
     [SerializeField] private GameObject equipmentLoadoutSystemObj;
     
     [Header("Lethal Checks")]
@@ -131,6 +132,7 @@ public class InvisibleMinesGameManager : MonoBehaviour
         gameStatusUI.SetActive(true);
         gameStatusUI_HUD.SetActive(true);
         
+        equipmentLoadoutSystem.ResetEquipments();
         equipmentLoadoutSystemObj.SetActive(true);
 
         onGameStart?.Invoke();

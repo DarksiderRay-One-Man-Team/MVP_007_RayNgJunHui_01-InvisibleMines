@@ -4,12 +4,12 @@ using Oculus.Interaction.HandGrab;
 using TMPro;
 using UnityEngine;
 
-public class MarkerSpray : MonoBehaviour, IHandGrabUseDelegate
+public class MarkerSpray : Equipment, IHandGrabUseDelegate
 {
-    [Header("Ammo Count")]
-    [SerializeField] private int currentAmmoCount;
-    [SerializeField] private int maxAmmoCount = 5;
-    [SerializeField] private TextMeshProUGUI ammoText;
+    // [Header("Ammo Count")]
+    // [SerializeField] private int currentAmmoCount;
+    // [SerializeField] private int maxAmmoCount = 5;
+    // [SerializeField] private TextMeshProUGUI ammoText;
     
     [SerializeField] private GameObject _fogPrefab;
     [SerializeField] private float _fogInstantiationDistance = 0.3f;
@@ -33,18 +33,16 @@ public class MarkerSpray : MonoBehaviour, IHandGrabUseDelegate
 
     void Start()
     {
-        currentAmmoCount = maxAmmoCount;
-        UpdateAmmoDisplay();   
+        ResetAmmo();
     }
     
     public void StartSpraying()
     {
-        if (alreadySprayed || currentAmmoCount == 0)
+        if (alreadySprayed || !CheckAmmoCount())
             return;
 
         alreadySprayed = true;
-        currentAmmoCount--;
-        UpdateAmmoDisplay();
+        DecrementAmmo();
         _particleSystem.Play();
         //InvokeRepeating(nameof(Spray), 0, _fogInstantiationInterval);
         Spray();
@@ -132,13 +130,5 @@ public class MarkerSpray : MonoBehaviour, IHandGrabUseDelegate
         if (progress >= _fireThresold)
             StartSpraying();
 
-    }
-    
-    private void UpdateAmmoDisplay()
-    {
-        if (ammoText != null)
-        {
-            ammoText.text = $"Sprays: {currentAmmoCount}/{maxAmmoCount}";
-        }
     }
 }

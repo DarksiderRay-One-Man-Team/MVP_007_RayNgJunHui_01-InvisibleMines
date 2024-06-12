@@ -52,6 +52,7 @@ public class FindSpawnPositions_Custom : MonoBehaviour
     public float SurfaceClearanceDistance = 0.1f;
 
     [Header("Custom Properties")]
+    [SerializeField] private float minHeight = 0f;
     [SerializeField] private float maxHeight = 2.0f;
     [Space]
     [SerializeField] private Transform distanceRefTransform;
@@ -191,7 +192,7 @@ public class FindSpawnPositions_Custom : MonoBehaviour
                 
                 // check custom conditions ====================================
                 
-                if (spawnPosition.y > maxHeight)
+                if (spawnPosition.y > maxHeight || spawnPosition.x < minHeight)
                     continue;
 
                 if (distanceRefTransform != null)
