@@ -4,7 +4,7 @@ using Oculus.Interaction.HandGrab;
 using UnityEngine;
 using TMPro; 
 
-public class _SonicEmitter : MonoBehaviour, IHandGrabUseDelegate
+public class _SonicEmitter : MonoBehaviour
 {
     public float _EmitterRadius = 10.0f;
     public int maxAmmoCount = 3;
@@ -106,20 +106,20 @@ public class _SonicEmitter : MonoBehaviour, IHandGrabUseDelegate
     }
 
 
-    public void BeginUse()
-    {
-        Debug.Log("Begin Use");
-        SonicEmitter();
-    }
+    // public void BeginUse()
+    // {
+    //     Debug.Log("Begin Use");
+    //     SonicEmitter();
+    // }
 
-    public void EndUse()
-    {
-        //throw new System.NotImplementedException();
-    }
+    // public void EndUse()
+    // {
+    //     throw new System.NotImplementedException();
+    // }
 
-    public float ComputeUseStrength(float strength)
-    {
-        //throw new System.NotImplementedException();
-        return strength;
-    }
+    // public float ComputeUseStrength(float strength)
+    // {
+    //     throw new System.NotImplementedException();
+    //     return strength;
+    // }
 }
