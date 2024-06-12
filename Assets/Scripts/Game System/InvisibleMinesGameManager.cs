@@ -36,6 +36,9 @@ public class InvisibleMinesGameManager : MonoBehaviour
 
     [Header("Audio Managers")]
     [SerializeField] private BGMManager bgmManager;
+
+    [SerializeField] private AudioSource mainSfxSource;
+    [SerializeField] private AudioClip heartbeatClip;
     
     [Header("DEBUG")]
     //[SerializeField] private TextMeshPro debugText;
@@ -79,7 +82,10 @@ public class InvisibleMinesGameManager : MonoBehaviour
         onRemainingLivesUpdated += noOfLives =>
         {
             if (noOfLives > 0)
+            {
                 onScreenGUI_LivesRemaining.FadeInTemporarily();
+                mainSfxSource.PlayOneShot(heartbeatClip);
+            }
             StartCoroutine(FadePassthroughLayerWhenHurt());
         };
         

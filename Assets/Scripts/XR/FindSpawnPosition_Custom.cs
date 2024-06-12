@@ -192,7 +192,7 @@ public class FindSpawnPositions_Custom : MonoBehaviour
                 
                 // check custom conditions ====================================
                 
-                if (spawnPosition.y > maxHeight || spawnPosition.x < minHeight)
+                if (spawnPosition.y > maxHeight || spawnPosition.y < minHeight)
                     continue;
 
                 if (distanceRefTransform != null)

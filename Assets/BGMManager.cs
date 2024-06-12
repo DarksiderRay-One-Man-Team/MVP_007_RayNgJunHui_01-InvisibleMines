@@ -31,6 +31,7 @@ public class BGMManager : MonoBehaviour
 
     public void FadeOutBGM()
     {
-        bgmAudioSource.DOFade(0f, fadeOutDuration).OnComplete(() => bgmAudioSource.Stop());
+        //bgmAudioSource.DOFade(0f, fadeOutDuration).OnComplete(() => bgmAudioSource.Stop());
+        bgmAudioSource.DOFade(0.2f, fadeOutDuration);
     }
 }

@@ -38,10 +38,10 @@ public class GUI_IntroSubScreen_Tutorial : GUI_IntroSubScreen
         nextButtonUnityEventWrapper.WhenSelect.AddListener(GoToNextIndex);
     }
 
-    void OnEnable()
-    {
-        GoToIndex(0);
-    }
+    // void OnEnable()
+    // {
+    //     GoToIndex(0);
+    // }
 
     [Button]
     void GoToPreviousIndex()
